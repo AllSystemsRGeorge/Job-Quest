@@ -1,11 +1,11 @@
 const User = require('./User');
-const Todo = require('./Todo');
+const Jobs = require('./Jobs');
 
-Todo.belongsTo(User, {
+Jobs.belongsTo(User, {
     foreignKey: 'userId',
 });
 
-User.hasMany(Todo, {
+User.hasMany(Jobs, {
     foreignKey: 'userId',
     onDelete: 'CASCADE',
 });
@@ -13,6 +13,6 @@ User.hasMany(Todo, {
 
 module.exports = {
     User,
-    Todo,
+    Jobs,
 };
 

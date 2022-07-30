@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const apiController = require('./apiController');
 const {User} = require('../models');
-const {Todo} = require('../models');
+const {Jobs} = require('../models');
 
 // renders signup/landing page
 router.get('/', (req,res) => {
@@ -52,7 +52,7 @@ router.get('/todos', async (req, res) => {
     }
 
     try {
-        const userTodosData = await Todo.findAll({
+        const userTodosData = await Jobs.findAll({
             where: {
                 userId: req.session.user.id,
             },
