@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS handlebarsTodos_db;
-CREATE DATABASE handlebarsTodos_db;
+DROP DATABASE IF EXISTS jobQuest_db;
+CREATE DATABASE jobQuest_db;

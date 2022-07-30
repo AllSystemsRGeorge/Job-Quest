@@ -4,11 +4,12 @@ const exphbs = require('express-handlebars');
 const expsesh = require('express-session');
 
 const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
+
 const sequelize = require('./config/connection');
 const routes = require('./controllers/homepageController');
 
 // handlebars helpers
-const helpers = require('./utils/helpers');
+const helpers = require('./utils/helper');
 
 // handlebars init
 const hbs = exphbs.create({
@@ -46,5 +47,5 @@ app.use(routes);
 
 // server listener + sequelize sync
 sequelize.sync({force: false}).then(() => {
-    app.listen(PORT, () => console.log('server up'));
+    app.listen(PORT, () => console.log('Go to http://localhost:3001/'));
 });

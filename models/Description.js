@@ -1,31 +1,48 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Todo extends Model {}
+class Description extends Model {}
 
-Todo.init(
+Description.init(
     {
         id: {
             type: DataTypes.UUID,
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
         },
-        todo: {
+        link: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notNull: true,
             },
         },
-        isCompleted: {
+        initialSalary: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: false,
+            validate: {
+                notNull: true,
+            },
         },
-        userId: {
+        haveApplied: {
+            type: DataTypes.BOOLEAN ,
+            allowNull: true,
+            defaultValue: false,
+            validate: {
+                notNull: true,
+            },
+        },
+        status: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notNull: true,
+            },
+        },
+        jobsId: {
             type: DataTypes.UUID,
             references: {
-                model: 'users',
+                model: 'jobs',
                 key: 'id',
             },
         }
@@ -36,4 +53,4 @@ Todo.init(
     }
 );
 
-module.exports = Todo;
+module.exports = Description;

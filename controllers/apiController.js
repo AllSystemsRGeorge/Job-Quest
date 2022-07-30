@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Todo, User} = require('../models');
+const {Jobs, User} = require('../models');
 const bcrypt = require('bcryptjs');
 
 // /api prepended
@@ -11,12 +11,12 @@ router.post('/todos', async (req, res) => {
     }
 
     try {
-        const newTodo = await Todo.create({
+        const newJob = await Jobs.create({
             todo: req.body.todo,
             userId: req.session.user.id,
         });
 
-        res.json(newTodo);
+        res.json(newJob);
     } catch (error) {
         console.error(error);
         res.status(500).json({error});
