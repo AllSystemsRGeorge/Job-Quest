@@ -7,11 +7,9 @@ const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
 const sequelize = require('./config/connection');
 const routes = require('./controllers/homepageController');
-const authRoutes = require('./controllers/auth')
 
 // handlebars helpers
 const helpers = require('./utils/helper');
-const auth = require('./controllers/auth');
 
 // handlebars init
 const hbs = exphbs.create({
@@ -46,7 +44,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(routes);
-app.use('/auth', authRoutes);
+
 // server listener + sequelize sync
 sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log('Go to http://localhost:3001/'));
