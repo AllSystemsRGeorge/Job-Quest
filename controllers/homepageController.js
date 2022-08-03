@@ -69,6 +69,13 @@ router.get('/todos', async (req, res) => {
     }
 });
 
+
+router.post('/login', 
+passport.authenticate('local', { failureRedirect: '/login' }),
+function(req, res) {
+  res.redirect('/');
+});
+
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);
 
