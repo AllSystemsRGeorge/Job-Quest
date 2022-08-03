@@ -70,6 +70,7 @@ router.get('/todos', async (req, res) => {
     }
 });
 
+
 router.post('/signin', passport.authenticate('local'), (req, res) => {
     res.send('Good request!');
 });
@@ -80,7 +81,7 @@ router.post('/signup', async (req, res) => {
         password: req.body.password
     })
     console.log(newUser.username, newUser.password)
-});
+
 
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);
