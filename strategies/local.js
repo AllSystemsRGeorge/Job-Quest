@@ -2,13 +2,37 @@ const LocalStrategy = require('passport-local');
 const passport = require('passport');
 const { User } = require('./../models');
 
+passport.serializeUser((user, done) => {
+  done(null, user.username)
+});
+
+passport.deserializeUser(async (username, done) => {
+  const user = await User.findOne({ username: username });
+  if (user) {
+    done(null, user);
+  }
+});
+
 passport.use(new LocalStrategy(
-    function(username, password, done) {
-      User.findOne({ username: username }, function (err, user) {
-        if (err) { return done(err); }
-        if (!user) { return done(null, false); }
-        if (!user.verifyPassword(password)) { return done(null, false); }
-        return done(null, user);
-      });
-    }
+    async function(username, password, done) {
+      
+      const user = await User.findOne({where: { username: username }});
+      console.log(user)
+      try {
+        if (!user) {
+          done(null, false);
+        } else {
+          if (user.username === username) {
+            done(null, user)
+          } else {
+            done(null, false);
+          }
+        }
+      } catch (error) {
+        done(err,false);
+      }
+      
+      }
   ));
+
+  module.exports = passport;

@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const exphbs = require('express-handlebars');
 const expsesh = require('express-session');
+const passport = require('passport');
+const local = require('./strategies/local')
 
 const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
@@ -17,6 +19,9 @@ const auth = require('./controllers/auth');
 const hbs = exphbs.create({
     helpers,
 });
+
+
+
 
 // express session settings
 const sessionSettings = {
@@ -38,9 +43,15 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // middlewares
+
+
+
 app.use(express.static('public'));
 
 app.use(expsesh(sessionSettings));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
