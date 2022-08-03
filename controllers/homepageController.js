@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require('passport');
 const apiController = require('./apiController');
 const {User} = require('../models');
 const {Jobs} = require('../models');
@@ -70,11 +71,17 @@ router.get('/todos', async (req, res) => {
 });
 
 
-router.post('/login', 
-passport.authenticate('local', { failureRedirect: '/login' }),
-function(req, res) {
-  res.redirect('/');
+router.post('/signin', passport.authenticate('local'), (req, res) => {
+    res.send('Good request!');
 });
+
+router.post('/signup', async (req, res) => {
+    const newUser = await User.create({
+        username: req.body.username,
+        password: req.body.password
+    })
+    console.log(newUser.username, newUser.password)
+
 
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);
