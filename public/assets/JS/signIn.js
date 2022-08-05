@@ -35,9 +35,9 @@ signinBtn.addEventListener('click', async (event) => {
         });
          
         // change user window to the /users endpoint
-        window.location.href = '/';
+      
         console.log(response)
-
+        // window.location.href = '/';
         await response.json();
     } catch (error) {
         console.log(error);
