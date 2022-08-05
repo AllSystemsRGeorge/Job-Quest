@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Quest</title>
+</head>
+<body>
+    <nav>Job Quest</nav>
+    <div class="jobCard">
+        <div class="cardHeader">
+            <h1>Company Name</h1>
+            <h4>Position Title</h4>
+        </div>
+    </div>
+    <form>
+        <!-- job summary -->
+        <h4>Job Prospect</h4>
+        <label for="name">Company Name:</label><br>   
+        <input type="text" name="name"><br>
+        <label for="position">Position Title:</label><br>
+        <input type="text" name="position"><br>
+        <label for="initialSalary">Salary range:</label><br>   
+        <input type="number" name="initialSalary"><br>
+        <label for="jobDesLink">Job posting URL: </label><br>
+        <input type="url" name="jobDesLink">
+
+        <!-- application process -->
+        <h4>Application Status</h4>
+        <label for="applied">Applied to job?</label>
+        <input type="checkbox" name="jobApplication"><br>
+        <label for="feedback">Did you hear back from this company since you applied?</label>
+        <input type="checkbox" name="feedback"><br>
+
+        <!-- recruiter contact info -->
+        <h4>Recruiter</h4>
+        <label for="recName">Recruiter Name:</label><br>
+        <input type="text" name="recName"><br>
+        <label for="recPhoneNum">Recruiter phone number:</label><br>
+        <input type="tel" name="recPhoneNum"><br>
+        <label for="recEmail">Recruiter email:</label><br>
+        <input type="email" name="recEmail"><br>
+
+        <!-- interview process -->
+        <h4>Interview Status</h4>
+        <label for="screeningInt">Screening Interview:</label><br>
+        <input type="datetime-local" name="screeningInt"><br>
+        <label for="technicalInt">Technical Interview:</label><br>
+        <input type="datetime-local" name="technicalInt"><br>
+        <label for="finalInt">Final Interview:</label><br>
+        <input type="datetime-local" name="finalInt"><br>
+
+        <!-- hiring process -->
+        <h4>Offering Package</h4>
+        <label for="finalSalary">Final salary offer:</label><br>
+        <input type="number" name="finalSalary"><br>
+        <label for="finalSalary">Time off benefits:</label><br>
+        <input type="text" name="finalSalary"><br>
+        <label for="stockOpt">Sign On Bonus:</label><br>
+        <input type="number" name="finalSalary"><br>
+        <textarea name="otherBenefits" id="" cols="30" rows="10">Other benefits:</textarea>
+
+        <input type="submit">
+    </form>
+</body>
+</html>
