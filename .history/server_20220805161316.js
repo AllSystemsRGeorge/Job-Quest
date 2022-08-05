@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const exphbs = require('express-handlebars');
+//const exphbs = require('express-handlebars');
 const expsesh = require('express-session');
 const passport = require('passport');
 const local = require('./strategies/local')
@@ -16,9 +16,9 @@ const helpers = require('./utils/helper');
 const auth = require('./controllers/auth');
 
 // handlebars init
-const hbs = exphbs.create({
-    helpers
-});
+// const hbs = exphbs.create({
+//     helpers,
+// });
 
 
 

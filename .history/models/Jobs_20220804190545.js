@@ -10,7 +10,7 @@ Jobs.init(
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
         },
-        company_name: {
+        companyName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -31,59 +31,39 @@ Jobs.init(
                 notNull: true,
             },
         },
-        initial_salary: {
+        initialSalary: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
+            validate: {
+                notNull: true,
+            },
         },
         haveApplied: {
             type: DataTypes.BOOLEAN ,
             allowNull: true,
             defaultValue: false,
+            validate: {
+                notNull: true,
+            },
         },
         feedback: {
-            type: DataTypes.BOOLEAN ,
-            allowNull: true,
-            defaultValue: false,
-        },
-        recruitner_name: {
             type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null,
+            allowNull: false,
+            validate: {
+                notNull: true,
+            },
         },
-        recruitner_phone: {
+        screeninginterviewStatus: {
             type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null,
+            allowNull: false,
+            validate: {
+                notNull: true,
+            },
         },
-        recruitner_email: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null,
-        },
-        screening_interview: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null,
-        },
-        technical_interview: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null,
-        },
-        final_interview: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null,
-        },
-        job_offer: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null,
-        }
     },
     {
         sequelize,
-        modelName: 'jobs',
+        modelName: 'todos',
     }
 );
 
