@@ -1,0 +1,57 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #0087FF;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  #navBar {
+      margin: auto;
+      display: flex;
+      padding: 5px 0;
+      justify-content: space-evenly;
+  }
+  
+  #navBar ul li {
+      list-style: none;
+      margin: 10px 100px;
+      font-size: small;
+  }
+  
+  .cards {
+    display: flex;
+    margin: 10px 50px, 30px;
+    justify-content: space-evenly;
+    position:absolute;
+    padding: 15px 70px;
+    flex-wrap: wrap;
+  }
+  
+  h4 {
+    color: green;
+  }
+  
+  h4 p {
+    color: black;
+  }
+  
+  .card-body {
+    background-color: #ecf1f9;
+  }
+  
+  .card-header:first-child {
+      background-color: #2f4d7f;
+  }
+  
+  
+  h3 {
+    color: #ecf1f9;
+    size: small;
+  }
