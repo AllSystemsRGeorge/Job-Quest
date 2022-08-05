@@ -1,12 +1,29 @@
-const signinBtn = document.getElementById('signinBtn');
-const signinUsernameInput = document.getElementById('signinUsernameInput');
-const signinPasswordInput = document.getElementById('signinPasswordInput');
+const usernameInput = document.getElementById('userNameInput');
+const passwordInput = document.getElementById('passwordInput');
+const signUpBtn = document.getElementById('signUpBtn');
+const signoutBtn = document.getElementById('signoutBtn');
 
-signinBtn.addEventListener('click', async (event) => {
+
+signoutBtn.addEventListener('click', async () => {
+    try {
+        const response = await fetch('/api/signout', {
+            method: 'POST',
+        });
+
+        await response.json();
+        window.location.href = '/';
+    } catch (error) {
+        alert(error);
+    }
+});
+
+
+signUpBtn.addEventListener('click', async (event) => {
     event.preventDefault();
-    const username = signinUsernameInput.value;
-    const password = signinPasswordInput.value;
-
+    console.log('im hit!')
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+    console.log(username, password)
     // checks to make sure username is not empty
     if(username.trim().length === 0){
         alert('Please enter a valid username');
@@ -20,7 +37,7 @@ signinBtn.addEventListener('click', async (event) => {
 
     // posts the user input to the /api/signup endpoint
     try {
-        const response = await fetch('/api/signin', {
+        const response = await fetch('/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
