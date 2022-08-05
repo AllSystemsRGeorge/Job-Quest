@@ -48,17 +48,17 @@ Jobs.init(
         recruitner_name: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: null,
+            defaultValue: false,
         },
         recruitner_phone: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: null,
+            defaultValue: false,
         },
         recruitner_email: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: null,
+            defaultValue: false,
         },
         screening_interview: {
             type: DataTypes.DATE,
@@ -78,7 +78,7 @@ Jobs.init(
         job_offer: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: null,
+            defaultValue: false,
         }
     },
     {

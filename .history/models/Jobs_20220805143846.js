@@ -10,7 +10,7 @@ Jobs.init(
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
         },
-        company_name: {
+        companyName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -31,7 +31,7 @@ Jobs.init(
                 notNull: true,
             },
         },
-        initial_salary: {
+        initialSalary: {
             type: DataTypes.STRING,
             allowNull: true,
         },
@@ -45,40 +45,30 @@ Jobs.init(
             allowNull: true,
             defaultValue: false,
         },
-        recruitner_name: {
+        recruitnerName: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: null,
+            defaultValue: false,
         },
-        recruitner_phone: {
+        screeningInterview: {
+            type: DataTypes.DATETIME,
+            allowNull: true,
+            defaultValue: false,
+        },
+        technicalInterview: {
+            type: DataTypes.DATETIME,
+            allowNull: true,
+            defaultValue: false,
+        },
+        finalInterview: {
+            type: DataTypes.DATETIME,
+            allowNull: true,
+            defaultValue: false,
+        },
+        offerPackage: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: null,
-        },
-        recruitner_email: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null,
-        },
-        screening_interview: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null,
-        },
-        technical_interview: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null,
-        },
-        final_interview: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            defaultValue: null,
-        },
-        job_offer: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null,
+            defaultValue: false,
         }
     },
     {

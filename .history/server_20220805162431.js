@@ -17,7 +17,7 @@ const auth = require('./controllers/auth');
 
 // handlebars init
 const hbs = exphbs.create({
-    helpers
+    helpers,
 });
 
 

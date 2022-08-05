@@ -1,18 +1,18 @@
-const Users = require('./Users');
+const User = require('./User');
 const Jobs = require('./Jobs');
 
-Jobs.belongsTo(Users, {
+Jobs.belongsTo(User, {
     foreignKey: 'userId',
 });
 
-Users.hasMany(Jobs, {
+User.hasMany(Jobs, {
     foreignKey: 'userId',
     onDelete: 'CASCADE',
 });
 
 
 module.exports = {
-    Users,
+    User,
     Jobs,
 };
 
