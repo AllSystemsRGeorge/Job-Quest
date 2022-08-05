@@ -6,9 +6,13 @@ const {Jobs} = require('../models');
 
 // renders signup/landing page
 router.get('/', (req,res) => {
-    res.render('landingPage', {
+    res.render('signup', {
         isLoggedIn: req.session.isLoggedIn,
     });
+});
+
+router.get('/signup', (req,res) => {
+    res.render('signup');
 });
 
 router.get('/signin', (req,res) => {
@@ -16,6 +20,19 @@ router.get('/signin', (req,res) => {
         isLoggedIn: req.session.isLoggedIn,
     });
 });
+
+router.get('/cards', (req,res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/')
+    }
+    
+    const everyJob = Jobs.findAll();
+    
+    res.render('jobs', {
+        everyJob
+    });
+});
+
 
 // renders users page using user database data
 router.get('/users', async (req, res) => {
@@ -72,16 +89,22 @@ router.get('/todos', async (req, res) => {
 
 
 router.post('/signin', passport.authenticate('local'), (req, res) => {
-    res.send('Good request!');
+    console.log('signin')
+    req.session.save(() => {
+        req.session.user = req.user;
+        req.session.isLoggedIn = true;
+        res.json({success: true});
+      });
+     
 });
 
 router.post('/signup', async (req, res) => {
+    
     const newUser = await User.create({
         username: req.body.username,
         password: req.body.password
     });
-    console.log(newUser.username, newUser.password)
-
+    res.send(newUser)
 });
 
 // sends routes w/ /api to apiController.js file

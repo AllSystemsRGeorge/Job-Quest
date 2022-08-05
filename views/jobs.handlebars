@@ -1,17 +1,18 @@
 
 <body>
 <section id="cards" class="cards">
-  {{#each users.jobs as |jobs|}}
+
+  {{#each everyJob as |singleJob|}}
  <div class="card border-success mb-3" style="max-width: 20rem;">
   <div id="card-name" class="card-header">
-    <h3>{{jobs.companyName}}</h3>
+    <h3>{{singleJob.companyName}}</h3>
   </div>
   <div id="company1" class="card-body">
-    <h4 id="jobTitle1" class="card-title">{{jobs.position}}</h4>
-    <h4 id="jobTitle1" class="card-title">{{jobs.link}}</h4>
-    <h4 id="jobTitle1" class="card-title">{{jobs.initialSalary}}</h4>
+    <h4 id="jobTitle1" class="card-title">{{singleJob.position}}</h4>
+    <h4 id="jobTitle1" class="card-title">{{singleJob.link}}</h4>
+    <h4 id="jobTitle1" class="card-title">{{singleJob.initialSalary}}</h4>
   </div>
-  <div class="card-footer bg-transparent border-success">{{}}</div>
+
 </div>
 {{/each}}
 </section>
