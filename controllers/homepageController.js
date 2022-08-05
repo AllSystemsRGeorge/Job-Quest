@@ -17,6 +17,15 @@ router.get('/signin', (req,res) => {
     });
 });
 
+router.get('/cards', (req,res) => {
+    const everyJob = Jobs.findAll();
+    
+    res.render('jobs', {
+        everyJob
+    });
+});
+
+
 // renders users page using user database data
 router.get('/users', async (req, res) => {
     try {
