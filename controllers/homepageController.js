@@ -79,9 +79,10 @@ router.post('/signup', async (req, res) => {
     const newUser = await User.create({
         username: req.body.username,
         password: req.body.password
-    })
+    });
     console.log(newUser.username, newUser.password)
 
+});
 
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);
