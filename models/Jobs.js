@@ -40,7 +40,7 @@ Jobs.init(
         },
         haveApplied: {
             type: DataTypes.BOOLEAN ,
-            allowNull: true,
+            allowNull: false,
             defaultValue: false,
             validate: {
                 notNull: true,
