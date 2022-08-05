@@ -1,149 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs</title>
-</head>
+
 <body>
-    
 <section id="cards" class="cards">
-  
+  {{#each users.jobs as |jobs|}}
  <div class="card border-success mb-3" style="max-width: 20rem;">
   <div id="card-name" class="card-header">
-    <h3>Company 1</h3>
+    <h3>{{jobs.companyName}}</h3>
   </div>
   <div id="company1" class="card-body">
-    <h4 id="jobTitle1" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
+    <h4 id="jobTitle1" class="card-title">{{jobs.position}}</h4>
+    <h4 id="jobTitle1" class="card-title">{{jobs.link}}</h4>
+    <h4 id="jobTitle1" class="card-title">{{jobs.initialSalary}}</h4>
   </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
+  <div class="card-footer bg-transparent border-success">{{}}</div>
 </div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 2</h3>
-  </div>
-  <div id="company2" class="card-body">
-    <h4 id="jobTitle2" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 3</h3>
-  </div>
-  <div id="company3" class="card-body">
-    <h4 id="jobTitle3" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 4</h3>
-  </div>
-  <div id="company4" class="card-body">
-    <h4 id="jobTitle4" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 5</h3>
-  </div>
-  <div id="company5" class="card-body">
-    <h4 id="jobTitle5" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 6</h3>
-  </div>
-  <div id="company6" class="card-body">
-    <h4 id="jobTitle6" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 7</h3>
-  </div>
-  <div id="company7" class="card-body">
-    <h4 id="jobTitle7" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 8</h3>
-  </div>
-  <div id="company8" class="card-body">
-    <h4 id="jobTitle8" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
-  <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>Company 9</h3>
-  </div>
-  <div id="company9" class="card-body">
-    <h4 id="jobTitle9" class="card-title">Job title</h4>
-    <p class="card-text">
-        Some quick example text to build 
-        on the card title and make up the bulk of 
-        the card's content.
-    </p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Comments</div>
-</div>
-
+{{/each}}
+</section>
 </body>
-</html>
