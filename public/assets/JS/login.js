@@ -4,7 +4,7 @@ const signUpBtn = document.getElementById('signUpBtn');
 const signoutBtn = document.getElementById('signoutBtn');
 
 
-signoutBtn?.addEventListener('click', async () => {
+signoutBtn.addEventListener('click', async () => {
     try {
         const response = await fetch('/api/signout', {
             method: 'POST',
