@@ -11,7 +11,9 @@ const sequelize = require('./config/connection');
 const routes = require('./controllers/homepageController');
 
 // handlebars init
-const hbs = exphbs.create({});
+const hbs = exphbs.create({
+    helpers
+});
 
 
 
