@@ -1,8 +1,8 @@
 // Monineath's file for POST request of job form/user input
 const router = require('express').Router();
-const {Jobs} = require('../models/Jobs');
+const { Jobs } = require('../models');
 
-router.post('/jobCards/:userId', (req, res) => {
+router.post('/jobCards', async (req, res) => {
     return await Jobs.create({
         userId: req.params.userId,
         company: req.body.company,
@@ -28,11 +28,23 @@ router.post('/jobCards/:userId', (req, res) => {
     })
 }); 
 
-router.get('/jobCards/:userId', (req,res) => {
+router.get('/jobCards', async (req,res) => {
+    console.log(Jobs);
     if (!req.session.isLoggedIn) {
         return res.redirect('/')
     }
-    
+    // res.render('jobsCards', {
+    //     // everyJob
+    // });
+    // const userJobsData = await Jobs.findAll({
+    //     where: {
+    //         userId: req.session.user.id,
+    //     },
+    // });
+
+    // const jobs = userJobsData.map(job => job.get({plain: true}));
+
+    // if (!jobs) {console.log('jobs exists')}
     try {
         const everyJob = Jobs.findAll({
             where: Sequelize.and(
@@ -48,6 +60,4 @@ router.get('/jobCards/:userId', (req,res) => {
     
 });
 
-router.get('/new', (req, res) => {
-    res.render('new');
-});
+module.exports = router;
