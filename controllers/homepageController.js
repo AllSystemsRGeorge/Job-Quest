@@ -52,28 +52,28 @@ router.get('/users/:userId', async (req, res) => {
     }
 });
 
-router.get('/jobs', async (req, res) => {
-    if(!req.session.isLoggedIn){
-        return res.redirect('/');
-    }
+// router.get('/jobs', async (req, res) => {
+//     if(!req.session.isLoggedIn){
+//         return res.redirect('/');
+//     }
 
-    try {
-        const userJobsData = await Jobs.findAll({
-            where: {
-                userId: req.session.user.id,
-            },
-        });
+//     try {
+//         const userJobsData = await Jobs.findAll({
+//             where: {
+//                 userId: req.session.user.id,
+//             },
+//         });
 
-        const jobs = userJobsData.map(job => job.get({plain: true}));
+//         const jobs = userJobsData.map(job => job.get({plain: true}));
 
-        res.render('jobs', {
-            jobs,
-            isLoggedIn: req.session.isLoggedIn,
-        });
-    } catch (error) {
-        res.status(500).json({error});
-    }
-});
+//         res.render('jobs', {
+//             jobs,
+//             isLoggedIn: req.session.isLoggedIn,
+//         });
+//     } catch (error) {
+//         res.status(500).json({error});
+//     }
+// });
 
 
 router.post('/signin', passport.authenticate('local'), (req, res) => {
@@ -97,9 +97,5 @@ router.post('/signup', async (req, res) => {
 
     res.send(newUser)
 });
-
-
-// sends routes w/ /api to apiController.js file
-router.use('/api', apiController);
 
 module.exports = router;
