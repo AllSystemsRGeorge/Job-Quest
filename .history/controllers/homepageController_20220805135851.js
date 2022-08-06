@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
 const apiController = require('./apiController');
-const {Users} = require('../models');
+const {User} = require('../models');
 const {Jobs} = require('../models');
 
 // renders signup/landing page
@@ -37,7 +37,7 @@ router.get('/cards', (req,res) => {
 // renders users page using user database data
 router.get('/users', async (req, res) => {
     try {
-        const dbUsersData = await Users.findAll();
+        const dbUsersData = await User.findAll();
         // map db data to plain json
         const users = dbUsersData.map(dbUser => dbUser.get({plain: true}));
         console.log(users);
@@ -55,7 +55,7 @@ router.get('/users', async (req, res) => {
 // renders user profile page given a user id
 router.get('/users/:userId', async (req, res) => {
     try {
-        const userData = await Users.findByPk(req.params.userId);
+        const userData = await User.findByPk(req.params.userId);
         const user = userData.get({plain: true});
 
         res.render('userProfile', {user});
@@ -100,7 +100,7 @@ router.post('/signin', passport.authenticate('local'), (req, res) => {
 
 router.post('/signup', async (req, res) => {
     
-    const newUser = await Users.create({
+    const newUser = await User.create({
         username: req.body.username,
         password: req.body.password
     });
