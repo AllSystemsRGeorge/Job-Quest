@@ -10,6 +10,7 @@ const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
 const sequelize = require('./config/connection');
 const routes = require('./controllers/homepageController');
+const jobFormRoute = require('./controllers/jobCard-routes');
 
 // handlebars init
 const hbs = exphbs.create({});
@@ -50,6 +51,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(routes);
+app.use(jobFormRoute);
 // server listener + sequelize sync
 sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log('Go to http://localhost:3001/'));
