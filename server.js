@@ -3,7 +3,8 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const expsesh = require('express-session');
 const passport = require('passport');
-const local = require('./strategies/local')
+const local = require('./strategies/local');
+
 
 const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
@@ -45,7 +46,6 @@ app.use(expsesh(sessionSettings));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
