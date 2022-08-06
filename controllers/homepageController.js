@@ -52,22 +52,22 @@ router.get('/users/:userId', async (req, res) => {
     }
 });
 
-router.get('/todos', async (req, res) => {
+router.get('/jobs', async (req, res) => {
     if(!req.session.isLoggedIn){
         return res.redirect('/');
     }
 
     try {
-        const userTodosData = await Jobs.findAll({
+        const userJobsData = await Jobs.findAll({
             where: {
                 userId: req.session.user.id,
             },
         });
 
-        const todos = userTodosData.map(todo => todo.get({plain: true}));
+        const jobs = userJobsData.map(job => job.get({plain: true}));
 
-        res.render('todos', {
-            todos,
+        res.render('jobs', {
+            jobs,
             isLoggedIn: req.session.isLoggedIn,
         });
     } catch (error) {
@@ -78,20 +78,23 @@ router.get('/todos', async (req, res) => {
 
 router.post('/signin', passport.authenticate('local'), (req, res) => {
     console.log('signin')
+    console.log(req.user);
+    
     req.session.save(() => {
         req.session.user = req.user;
         req.session.isLoggedIn = true;
-        res.json({success: true});
+        res.json({ success: true });
       });
      
 });
 
 router.post('/signup', async (req, res) => {
-    
+
     const newUser = await Users.create({
         username: req.body.username,
         password: req.body.password
     });
+
     res.send(newUser)
 });
 

@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 // /api prepended
 
 
-router.post('/todos', async (req, res) => {
+router.post('/jobs', async (req, res) => {
     if(!req.session.isLoggedIn){
         res.status(401).json({error: 'You must be logged in to do that'});
     }

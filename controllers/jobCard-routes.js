@@ -1,6 +1,6 @@
 // Monineath's file for POST request of job form/user input
 const router = require('express').Router();
-const Jobs = require('../models/Jobs');
+const {Jobs} = require('../models/Jobs');
 
 router.post('/jobCards/:userId', (req, res) => {
     return await Jobs.create({
@@ -46,4 +46,8 @@ router.get('/jobCards/:userId', (req,res) => {
         res.status(404).send("Error in fetching all jobCards");
     }
     
+});
+
+router.get('/new', (req, res) => {
+    res.render('new');
 });
