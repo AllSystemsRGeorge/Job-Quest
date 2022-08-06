@@ -22,7 +22,7 @@ submitBtn.addEventListener('click', async (event) => {
     }
 
     try {
-        const response = await fetch('/api/jobCards', {
+        const response = await fetch('/jobForm', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,3 +38,4 @@ submitBtn.addEventListener('click', async (event) => {
         alert(error);
     }
 })
+console.log('hello')
