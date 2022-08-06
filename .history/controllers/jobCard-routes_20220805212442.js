@@ -1,10 +1,15 @@
 // Monineath's file for POST request of job form/user input
 const router = require('express').Router();
 const Jobs = require('../models/Jobs');
+const perspectiveJobs = [
+    {
+        
+    }
+]
 
-router.post('/jobCards/:userId', (req, res) => {
+router.post('/api/jobcard', (req, res) => {
     return await Jobs.create({
-        userId: req.params.userId,
+        userId: req.body.userId,
         company: req.body.company,
         position: req.body.position,
         link: req.body.link,
@@ -27,23 +32,3 @@ router.post('/jobCards/:userId', (req, res) => {
         }
     })
 }); 
-
-router.get('/jobCards/:userId', (req,res) => {
-    if (!req.session.isLoggedIn) {
-        return res.redirect('/')
-    }
-    
-    try {
-        const everyJob = Jobs.findAll({
-            where: Sequelize.and(
-                { userId: req.params.userId })
-        });
-        
-        res.render('jobsCards', {
-            everyJob
-        });
-    } catch {
-        res.status(404).send("Error in fetching all jobCards");
-    }
-    
-});

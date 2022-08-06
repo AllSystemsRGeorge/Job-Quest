@@ -21,6 +21,18 @@ router.get('/signin', (req,res) => {
     });
 });
 
+router.get('/cards', (req,res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/')
+    }
+    
+    const everyJob = Jobs.findAll();
+    
+    res.render('jobsCards', {
+        everyJob
+    });
+});
+
 
 // renders users page using user database data
 router.get('/users', async (req, res) => {
@@ -94,7 +106,6 @@ router.post('/signup', async (req, res) => {
     });
     res.send(newUser)
 });
-
 
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);

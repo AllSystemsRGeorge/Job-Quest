@@ -95,6 +95,26 @@ router.post('/signup', async (req, res) => {
     res.send(newUser)
 });
 
+router.get('/jobCards', (req,res) => {
+    console.log("hello");
+    // if (!req.session.isLoggedIn) {
+    //     return res.redirect('/')
+    // }
+    
+    try {
+        const everyJob = Jobs.findAll({
+            where: Sequelize.and(
+                { userId: req.body.userId })
+        });
+        
+        res.render('jobsCards', {
+            everyJob
+        });
+    } catch {
+        res.status(500).send("Error in fetching all jobCards");
+    }
+    
+});
 
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);

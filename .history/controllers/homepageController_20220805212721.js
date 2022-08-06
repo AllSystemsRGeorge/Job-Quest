@@ -95,7 +95,6 @@ router.post('/signup', async (req, res) => {
     res.send(newUser)
 });
 
-
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);
 

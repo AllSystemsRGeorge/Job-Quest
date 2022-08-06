@@ -2,9 +2,9 @@
 const router = require('express').Router();
 const Jobs = require('../models/Jobs');
 
-router.post('/jobCards/:userId', (req, res) => {
+router.post('/jobCards', (req, res) => {
     return await Jobs.create({
-        userId: req.params.userId,
+        userId: req.body.userId,
         company: req.body.company,
         position: req.body.position,
         link: req.body.link,

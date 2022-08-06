@@ -2,9 +2,11 @@
 const router = require('express').Router();
 const Jobs = require('../models/Jobs');
 
-router.post('/jobCards/:userId', (req, res) => {
+console.log("Hello1");
+
+router.post('/jobCards', (req, res) => {
     return await Jobs.create({
-        userId: req.params.userId,
+        userId: req.body.userId,
         company: req.body.company,
         position: req.body.position,
         link: req.body.link,
@@ -28,7 +30,7 @@ router.post('/jobCards/:userId', (req, res) => {
     })
 }); 
 
-router.get('/jobCards/:userId', (req,res) => {
+router.get('/jobCards', (req,res) => {
     if (!req.session.isLoggedIn) {
         return res.redirect('/')
     }
@@ -36,7 +38,7 @@ router.get('/jobCards/:userId', (req,res) => {
     try {
         const everyJob = Jobs.findAll({
             where: Sequelize.and(
-                { userId: req.params.userId })
+                { userId: req.body.userId })
         });
         
         res.render('jobsCards', {

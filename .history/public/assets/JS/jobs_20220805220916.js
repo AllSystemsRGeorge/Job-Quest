@@ -13,22 +13,22 @@ const finalIntInput = document.getElementById('finalInterview');
 const jobOfferInput = document.getElementById('jobOffer')
 const submitBtn = document.getElementById('submitBtn');
 
-submitBtn.addEventListener('click', async (event) => {
+addTodoBtn.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    if(companyNameInput.value.trim().length === 0){
-        alert('Company name cannot be empty');
+    if(todoInput.value.trim().length === 0){
+        alert('todo cannot be empty');
         return;
     }
 
     try {
-        const response = await fetch('/api/jobCards', {
+        const response = await fetch('/api/todos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                jobCards: companyNameInput.value,
+                todo: todoInput.value,
             })
         });
 
