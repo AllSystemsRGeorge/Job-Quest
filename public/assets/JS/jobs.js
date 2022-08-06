@@ -1,4 +1,4 @@
-const companyNameInput = document.getElementById('campanyName');
+const companyNameInput = document.getElementById('companyName');
 const positionInput = document.getElementById('positionTitle');
 const salaryInput = document.getElementById('salary');
 const jobUrlInput = document.getElementById('jobLink');
@@ -15,20 +15,33 @@ const submitBtn = document.getElementById('submitBtn');
 
 submitBtn.addEventListener('click', async (event) => {
     event.preventDefault();
-
-    if(companyNameInput.value.trim().length === 0){
+    const companyName = companyNameInput.value;
+    const position = positionInput.value;
+    const jobUrl = jobUrlInput.value;
+    console.log(companyNameInput)
+    if(companyName.trim().length === 0){
         alert('Company name cannot be empty');
         return;
     }
-
+    if(position.trim().length === 0){
+        alert('position title cannot be empty');
+        return;
+    }
+    if(jobUrl.trim().length === 0){
+        alert('Job posting URL cannot be empty');
+        return;
+    }
+    
     try {
-        const response = await fetch('/api/jobCards', {
+        const response = await fetch('/jobForm', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                jobCards: companyNameInput.value,
+                company: companyNameInput.value,
+                position: positionInput.value,
+                link: jobUrlInput.value
             })
         });
 

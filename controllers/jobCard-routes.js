@@ -29,22 +29,9 @@ router.post('/jobCards', async (req, res) => {
 }); 
 
 router.get('/jobCards', async (req,res) => {
-    console.log(Jobs);
     if (!req.session.isLoggedIn) {
         return res.redirect('/')
     }
-    // res.render('jobsCards', {
-    //     // everyJob
-    // });
-    // const userJobsData = await Jobs.findAll({
-    //     where: {
-    //         userId: req.session.user.id,
-    //     },
-    // });
-
-    // const jobs = userJobsData.map(job => job.get({plain: true}));
-
-    // if (!jobs) {console.log('jobs exists')}
     try {
         const everyJob = Jobs.findAll({
             where: Sequelize.and(
