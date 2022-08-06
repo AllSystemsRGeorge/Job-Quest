@@ -1,10 +1,10 @@
 const users = require('./users');
-const {User} = require('../models');
+const {Users} = require('../models');
 const sequelize = require('../config/connection');
 
 const seeder = async () => {
     await sequelize.sync({force: true});
-    await User.bulkCreate(users, {
+    await Users.bulkCreate(users, {
         individualHooks: true,
     });
     process.exit(0);

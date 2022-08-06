@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Jobs, User} = require('../models');
+const {Jobs, Users} = require('../models');
 const bcrypt = require('bcryptjs');
 
 // /api prepended

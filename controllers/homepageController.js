@@ -6,7 +6,7 @@ const {Jobs} = require('../models');
 
 // renders signup/landing page
 router.get('/', (req,res) => {
-    res.render('signup', {
+    res.render('signUp&LogIn', {
         isLoggedIn: req.session.isLoggedIn,
     });
 });
@@ -18,18 +18,6 @@ router.get('/signup', (req,res) => {
 router.get('/signin', (req,res) => {
     res.render('signin', {
         isLoggedIn: req.session.isLoggedIn,
-    });
-});
-
-router.get('/cards', (req,res) => {
-    if (!req.session.isLoggedIn) {
-        return res.redirect('/')
-    }
-    
-    const everyJob = Jobs.findAll();
-    
-    res.render('jobs', {
-        everyJob
     });
 });
 
@@ -106,6 +94,7 @@ router.post('/signup', async (req, res) => {
     });
     res.send(newUser)
 });
+
 
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);
