@@ -107,6 +107,11 @@ router.post('/signup', async (req, res) => {
     res.send(newUser)
 });
 
+//this is for quotes
+router.get('/quotes', (req,res) => {
+    res.render('quotes');
+});
+
 // sends routes w/ /api to apiController.js file
 router.use('/api', apiController);
 
