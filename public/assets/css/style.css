@@ -55,3 +55,14 @@ body {
     color: #ecf1f9;
     size: small;
   }
+
+  .gradient-custom{
+    background:#0087FF;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right,#0087FF, green);
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, #0087FF, green)
+
+  }

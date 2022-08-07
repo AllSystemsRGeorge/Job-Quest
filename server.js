@@ -5,6 +5,8 @@ const expsesh = require('express-session');
 const passport = require('passport');
 const local = require('./strategies/local');
 
+const cors = require('cors')
+
 
 const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
@@ -40,7 +42,7 @@ app.set('view engine', 'handlebars');
 // middlewares
 
 
-
+app.use(cors());
 app.use(express.static('public'));
 
 app.use(expsesh(sessionSettings));
