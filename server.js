@@ -4,22 +4,18 @@ const exphbs = require('express-handlebars');
 const expsesh = require('express-session');
 const passport = require('passport');
 const local = require('./strategies/local');
+
 const cors = require('cors')
+
 
 const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
 const sequelize = require('./config/connection');
 const routes = require('./controllers/homepageController');
-const authRoutes = require('./controllers/auth')
-
-// handlebars helpers
-const helpers = require('./utils/helper');
-const auth = require('./controllers/auth');
-
+const jobCardRoute = require('./controllers/jobCard-routes');
+const jobFormRoute = require('./controllers/jobForm-routes');
 // handlebars init
-const hbs = exphbs.create({
-    helpers
-});
+const hbs = exphbs.create({});
 
 
 
@@ -53,12 +49,12 @@ app.use(expsesh(sessionSettings));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(routes);
-app.use('/auth', authRoutes);
+app.use(jobCardRoute);
+app.use(jobFormRoute);
 // server listener + sequelize sync
 sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log('Go to http://localhost:3001/'));

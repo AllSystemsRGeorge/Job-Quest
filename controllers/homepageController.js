@@ -6,7 +6,7 @@ const {Jobs} = require('../models');
 
 // renders signup/landing page
 router.get('/', (req,res) => {
-    res.render('signup', {
+    res.render('signUp&LogIn', {
         isLoggedIn: req.session.isLoggedIn,
     });
 });
@@ -18,18 +18,6 @@ router.get('/signup', (req,res) => {
 router.get('/signin', (req,res) => {
     res.render('signin', {
         isLoggedIn: req.session.isLoggedIn,
-    });
-});
-
-router.get('/cards', (req,res) => {
-    if (!req.session.isLoggedIn) {
-        return res.redirect('/')
-    }
-    
-    const everyJob = Jobs.findAll();
-    
-    res.render('jobs', {
-        everyJob
     });
 });
 
@@ -64,48 +52,52 @@ router.get('/users/:userId', async (req, res) => {
     }
 });
 
-router.get('/todos', async (req, res) => {
-    if(!req.session.isLoggedIn){
-        return res.redirect('/');
-    }
+// router.get('/jobs', async (req, res) => {
+//     if(!req.session.isLoggedIn){
+//         return res.redirect('/');
+//     }
 
-    try {
-        const userTodosData = await Jobs.findAll({
-            where: {
-                userId: req.session.user.id,
-            },
-        });
+//     try {
+//         const userJobsData = await Jobs.findAll({
+//             where: {
+//                 userId: req.session.user.id,
+//             },
+//         });
 
-        const todos = userTodosData.map(todo => todo.get({plain: true}));
+//         const jobs = userJobsData.map(job => job.get({plain: true}));
 
-        res.render('todos', {
-            todos,
-            isLoggedIn: req.session.isLoggedIn,
-        });
-    } catch (error) {
-        res.status(500).json({error});
-    }
-});
+//         res.render('jobs', {
+//             jobs,
+//             isLoggedIn: req.session.isLoggedIn,
+//         });
+//     } catch (error) {
+//         res.status(500).json({error});
+//     }
+// });
 
 
 router.post('/signin', passport.authenticate('local'), (req, res) => {
     console.log('signin')
+    console.log(req.user);
+    
     req.session.save(() => {
         req.session.user = req.user;
         req.session.isLoggedIn = true;
-        res.json({success: true});
+        res.json({ success: true });
       });
      
 });
 
 router.post('/signup', async (req, res) => {
-    
+
     const newUser = await Users.create({
         username: req.body.username,
         password: req.body.password
     });
+
     res.send(newUser)
 });
+
 
 //this is for quotes
 router.get('/quotes', (req,res) => {

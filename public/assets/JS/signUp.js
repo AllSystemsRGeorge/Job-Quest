@@ -60,7 +60,7 @@ signUpBtn.addEventListener('click', async (event) => {
         });
         await response.json();
         // change user window to the /users endpoint
-        window.location.href = '/cards'
+        window.location.href = '/jobform'
     } catch (error) {
         alert(error);
     }
@@ -95,7 +95,7 @@ signinBtn.addEventListener('click', async (event) => {
                 password,
             })
         });
-        window.location.href = '/cards'
+        window.location.href = '/jobform'
     } catch (error) {
         console.log(error);
     }

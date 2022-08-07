@@ -10,7 +10,14 @@ Jobs.init(
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
         },
-        company_name: {
+        userId: {
+            type: DataTypes.UUID,
+            references: {
+                model: 'users',
+                key: 'id'
+            }
+        },
+        company: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -31,7 +38,7 @@ Jobs.init(
                 notNull: true,
             },
         },
-        initial_salary: {
+        salary: {
             type: DataTypes.STRING,
             allowNull: true,
         },
@@ -45,37 +52,37 @@ Jobs.init(
             allowNull: true,
             defaultValue: false,
         },
-        recruitner_name: {
+        recruiterName: {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null,
         },
-        recruitner_phone: {
+        recruiterPhone: {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null,
         },
-        recruitner_email: {
+        recruiterEmail: {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null,
         },
-        screening_interview: {
+        screeningInterview: {
             type: DataTypes.DATE,
             allowNull: true,
             defaultValue: null,
         },
-        technical_interview: {
+        technicalInterview: {
             type: DataTypes.DATE,
             allowNull: true,
             defaultValue: null,
         },
-        final_interview: {
+        finalInterview: {
             type: DataTypes.DATE,
             allowNull: true,
             defaultValue: null,
         },
-        job_offer: {
+        jobOffer: {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null,
