@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
-const apiController = require('./apiController');
+
 const {Users} = require('../models');
 const {Jobs} = require('../models');
 
@@ -104,7 +104,6 @@ router.get('/quotes', (req,res) => {
     res.render('quotes');
 });
 
-// sends routes w/ /api to apiController.js file
-router.use('/api', apiController);
+
 
 module.exports = router;
