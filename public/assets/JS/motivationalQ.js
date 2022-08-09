@@ -1,4 +1,7 @@
 //api for motivational quote
+let authorEl = document.querySelector("#author")
+let funQuoteEl = document.querySelector("#funQuote")
+
 console.log ("hi")
 let api_url ="https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info";
 
@@ -12,6 +15,8 @@ async function getapi(url)
   });
   var data = await response.json();
   console.log(data);
+  authorEl.textContent= data.author;
+  funQuoteEl.textContent= data.text;
 }
 
 getapi(api_url);
