@@ -26,6 +26,10 @@ body {
       flex-wrap: nowrap;
   }
   
+  .card {
+    --bs-card-bg: #ecf1f9;
+  }
+
   .cards {
     display: flex;
     margin: 10px 50px, 30px;
@@ -49,9 +53,12 @@ body {
   
   .card-header:first-child {
       background-color: #2f4d7f;
+      color: #ecf1f9;
+      font-size:medium;
+      text-align: center;
+      font-weight: bold;
   }
-  
-  
+
   h3 {
     color: #ecf1f9;
     size: small;
