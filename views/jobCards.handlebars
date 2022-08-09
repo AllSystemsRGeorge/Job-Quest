@@ -1,4 +1,5 @@
 <body>
+  {{!-- nav bar section --}}
   <section id="navBar">
 
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -14,7 +15,7 @@
             <a class="nav-link" href="/jobform">Create Job Card</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/jobcards">Your Jobs</a>
+            <a class="nav-link" href="/jobcards">Your Job Cards</a>
           </li>
         </ul>
         <form id="formId" class="form-inline my-2 my-lg-0">
@@ -31,16 +32,16 @@
     {{#each everyJob as |singleJob|}}
     <div class="card border-success mb-3" style="max-width: 20rem;">
       <div id="card-name" class="card-header">
-        <h3>{{singleJob.companyName}}</h3>
+        <h3>{{singleJob.company}}</h3>
       </div>
       <div id="company1" class="card-body">
         <h4 id="jobTitle1" class="card-title">{{singleJob.position}}</h4>
         <h4 id="jobTitle1" class="card-title">{{singleJob.link}}</h4>
-        <h4 id="jobTitle1" class="card-title">{{singleJob.initialSalary}}</h4>
+        <h4 id="jobTitle1" class="card-title">{{singleJob.salary}}</h4>
       </div>
 
     </div>
     {{/each}}
   </section>
 </body>
-<script src="../public/assets/JS/cards.js"></script>
+<script src="../public/assets/JS/jobs.js"></script>

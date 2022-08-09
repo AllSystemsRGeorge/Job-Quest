@@ -1,3 +1,5 @@
+// Job form js for front end funtionalities
+
 const companyNameInput = document.getElementById('companyName');
 const positionInput = document.getElementById('positionTitle');
 const salaryInput = document.getElementById('salary');

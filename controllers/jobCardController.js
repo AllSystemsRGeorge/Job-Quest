@@ -1,7 +1,6 @@
-// Monineath's file for POST request of job form/user input
+// to render job cards at /jobcard extension
 const router = require('express').Router();
 const { Jobs } = require('../models');
-const { Users } = require('../models');
 
 router.get('/jobCards', async (req,res) => {
     if (!req.session.isLoggedIn) {
@@ -11,7 +10,6 @@ router.get('/jobCards', async (req,res) => {
         const everyJob = await Jobs.findAll({
             where: { userId: req.session.user.id}
         });
-        console.log(everyJob);
         res.render('jobCards', {
             everyJob
         });

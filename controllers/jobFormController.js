@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Jobs } = require('../models');
 
+// creates new job card with user input
 router.post('/jobCards', async (req, res) => {
     const newJobCard = await Jobs.create({
         company: req.body.company,
@@ -23,14 +24,14 @@ router.post('/jobCards', async (req, res) => {
 });
 
 
-// renders job form on html
+// renders job form on /jobform extension
 router.get('/jobform', async (req,res) => {
     
     if (!req.session.isLoggedIn) {
         return res.redirect('/')
     }
     try {
-        res.render('landingPage');
+        res.render('jobForm');
         }
     catch {
         res.status(404).send("Error in fetching all jobCards");
