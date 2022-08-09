@@ -20,7 +20,7 @@
         <form id="formId" class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
         </form>
-        <button class="btn btn-outline-success my-2 my-lg-10" type="submit">Search</button>
+        <button class="btn btn-outline-success my-2 my-lg-10" type="submit" id="searchBtn">Search</button>
         <button type="submit" class="btn btn-primary" id="logOutBtn">Log Out</button>
       </div>
     </nav>
@@ -29,7 +29,7 @@
   {{!-- job cards section --}}
   <section id="cards" class="cards">
 
-    {{#each everyJob as |singleJob|}}
+    {{#each eachJob as |singleJob|}}
     <div class="card border-success mb-3" style="max-width: 20rem;">
       <div id="card-name" class="card-header">
         <h3>{{singleJob.company}}</h3>
@@ -44,4 +44,4 @@
     {{/each}}
   </section>
 </body>
-<script src="../public/assets/JS/jobs.js"></script>
+<script src="/assets/JS/cards.js"></script>

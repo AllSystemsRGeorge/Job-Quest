@@ -35,7 +35,7 @@ submitBtn.addEventListener('click', async (event) => {
     }
     
     try {
-        const response = await fetch('/jobcards', {
+        const response = await fetch('/jobCards', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +56,6 @@ submitBtn.addEventListener('click', async (event) => {
                 jobOffer: jobOfferInput.value
             })
         });
-
         await response.json();
         window.location.reload(); //
     } catch (error) {
