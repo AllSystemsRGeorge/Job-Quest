@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const expsesh = require('express-session');
@@ -16,6 +17,7 @@ const jobCardRoute = require('./controllers/jobCard-routes');
 const jobFormRoute = require('./controllers/jobForm-routes');
 // handlebars init
 const hbs = exphbs.create({});
+const viewsPath = path.join(__dirname, './views');
 
 
 
@@ -37,7 +39,9 @@ const PORT = process.env.PORT || 3001;
 
 // handlebars template engine
 app.engine('handlebars', hbs.engine);
+app.set('views', viewsPath);
 app.set('view engine', 'handlebars');
+
 
 // middlewares
 
