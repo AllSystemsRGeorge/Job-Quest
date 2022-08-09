@@ -69,26 +69,26 @@ router.get('/search', async (req, res) => {
 });
 
 // to update jobcards
-// router.put('/jobcards', async (req, res) => {
-//     const updateJobCard = await Jobs.create({
-//         company: req.body.company,
-//         position: req.body.position,
-//         link: req.body.link,
-//         salary: req.body.salary,
-//         haveApplied:req.body.haveApplied,
-//         feedback: req.body.feedback,
-//         recruiterName: req.body.recruiterName,
-//         recruiterPhone:req.body.recruiterPhone,
-//         recruiterEmail: req.body.recruiterPhone,
-//         // conditions for if dates not selected
-//         screeningInterview: req.body.screeningInterview == "" ? null : req.body.screeningInterview,
-//         technicalInterview: req.body.technicalInterview == "" ? null : req.body.technicalInterview,
-//         finalInterview: req.body.finalInterview == "" ? null : req.body.finalInterview,
-//         jobOffer: req.body.jobOffer
-//     });
+router.put('/jobcards', async (req, res) => {
+    const updateJobCard = await Jobs.create({
+        company: req.body.company,
+        position: req.body.position,
+        link: req.body.link,
+        salary: req.body.salary,
+        haveApplied:req.body.haveApplied,
+        feedback: req.body.feedback,
+        recruiterName: req.body.recruiterName,
+        recruiterPhone:req.body.recruiterPhone,
+        recruiterEmail: req.body.recruiterPhone,
+        // conditions for if dates not selected
+        screeningInterview: req.body.screeningInterview == "" ? null : req.body.screeningInterview,
+        technicalInterview: req.body.technicalInterview == "" ? null : req.body.technicalInterview,
+        finalInterview: req.body.finalInterview == "" ? null : req.body.finalInterview,
+        jobOffer: req.body.jobOffer
+    });
 
-//     res.send(updateJobCard)
-// });
+    res.send(updateJobCard)
+});
 
 // to delete jobcards
 
