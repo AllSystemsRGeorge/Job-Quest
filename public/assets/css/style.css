@@ -16,13 +16,14 @@ body {
       margin: auto;
       display: flex;
       padding: 5px 0;
-      justify-content: space-evenly;
+      justify-content: space-around;
   }
   
   #navBar ul li {
       list-style: none;
       margin: 10px 100px;
       font-size: small;
+      flex-wrap: nowrap;
   }
   
   .card {
