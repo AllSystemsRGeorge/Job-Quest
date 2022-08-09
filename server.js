@@ -5,6 +5,7 @@ const expsesh = require('express-session');
 const passport = require('passport');
 const local = require('./strategies/local');
 
+const apiRoute = require('./controllers')
 const cors = require('cors')
 
 
@@ -53,6 +54,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(routes);
+app.use(apiRoute);
 app.use(jobCardRoute);
 app.use(jobFormRoute);
 // server listener + sequelize sync
