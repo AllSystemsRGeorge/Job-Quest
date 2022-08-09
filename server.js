@@ -6,7 +6,6 @@ const expsesh = require('express-session');
 const passport = require('passport');
 const local = require('./strategies/local');
 
-const apiRoute = require('./controllers')
 const cors = require('cors')
 
 
@@ -19,8 +18,6 @@ const jobFormRoute = require('./controllers/jobFormController');
 // handlebars init
 const hbs = exphbs.create({});
 const viewsPath = path.join(__dirname, './views');
-
-
 
 
 // express session settings
@@ -58,7 +55,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(routes);
-app.use(apiRoute);
 app.use(jobCardRoute);
 app.use(jobFormRoute);
 // server listener + sequelize sync
