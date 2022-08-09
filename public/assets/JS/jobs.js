@@ -46,7 +46,7 @@ submitBtn.addEventListener('click', async (event) => {
         });
 
         await response.json();
-        window.location.reload();
+        window.location.reload(); //
     } catch (error) {
         alert(error);
     }
