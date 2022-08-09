@@ -1,0 +1,1 @@
+// js functionality for front end of jobcards

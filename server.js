@@ -12,8 +12,8 @@ const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
 const sequelize = require('./config/connection');
 const routes = require('./controllers/homepageController');
-const jobCardRoute = require('./controllers/jobCard-routes');
-const jobFormRoute = require('./controllers/jobForm-routes');
+const jobCardRoute = require('./controllers/jobCardController');
+const jobFormRoute = require('./controllers/jobFormController');
 // handlebars init
 const hbs = exphbs.create({});
 

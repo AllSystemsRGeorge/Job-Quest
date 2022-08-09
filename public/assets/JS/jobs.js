@@ -8,18 +8,18 @@ const recruiterNameInput = document.getElementById('recruiterName');
 const recruiterPhoneInput = document.getElementById('recruiterPhone');
 const recruiterEmailInput = document.getElementById('recruiterEmail');
 const screeeningIntInput = document.getElementById('screeningInterview');
-const TechnicalIntInput = document.getElementById('technicalInterview');
+const technicalIntInput = document.getElementById('technicalInterview');
 const finalIntInput = document.getElementById('finalInterview');
 const jobOfferInput = document.getElementById('jobOffer')
 const submitBtn = document.getElementById('submitBtn');
 
+// for when user clicks 'create jod card' button
 submitBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const companyName = companyNameInput.value;
     const position = positionInput.value;
     const jobUrl = jobUrlInput.value;
-    console.log(companyNameInput)
-    if(companyName.trim().length === 0){
+    if(companyName.trim().length === 0){ 
         alert('Company name cannot be empty');
         return;
     }
@@ -41,7 +41,17 @@ submitBtn.addEventListener('click', async (event) => {
             body: JSON.stringify({
                 company: companyNameInput.value,
                 position: positionInput.value,
-                link: jobUrlInput.value
+                link: jobUrlInput.value,
+                salary: salaryInput.value,
+                haveApplied: appliedInput.checked,
+                feedback: feedbackInput.checked,
+                recruiterName: recruiterNameInput.value,
+                recruiterPhone: recruiterPhoneInput.value,
+                recruiterEmail: recruiterEmailInput.value,
+                screeningInterview: screeeningIntInput.value,
+                technicalInterview: technicalIntInput.value,
+                finalInterview: finalIntInput.value,
+                jobOffer: jobOfferInput.value
             })
         });
 

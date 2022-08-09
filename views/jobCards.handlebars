@@ -1,22 +1,46 @@
-{{!-- job cards section --}}
 <body>
-<section id="cards" class="cards">
+  <section id="navBar">
 
-  {{#each everyJob as |singleJob|}}
- <div class="card border-success mb-3" style="max-width: 20rem;">
-  <div id="card-name" class="card-header">
-    <h3>{{singleJob.companyName}}</h3>
-  </div>
-  <div id="company1" class="card-body">
-    <h4 id="jobTitle1" class="card-title">{{singleJob.position}}</h4>
-    <h4 id="jobTitle1" class="card-title">{{singleJob.link}}</h4>
-    <h4 id="jobTitle1" class="card-title">{{singleJob.initialSalary}}</h4>
-  </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <img src="/assets/images/Job Quest logo.jpeg" class="logo" height="100px">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-</div>
-{{/each}}
-</section>
-<a type="button" class="btn btn-default btn-primary" href="/new">
-New Job
-</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/jobform">Create Job Card</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/jobcards">Your Jobs</a>
+          </li>
+        </ul>
+        <form id="formId" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
+        </form>
+        <button class="btn btn-outline-success my-2 my-lg-10" type="submit">Search</button>
+      </div>
+    </nav>
+
+  </section>
+  {{!-- job cards section --}}
+  <section id="cards" class="cards">
+
+    {{#each everyJob as |singleJob|}}
+    <div class="card border-success mb-3" style="max-width: 20rem;">
+      <div id="card-name" class="card-header">
+        <h3>{{singleJob.companyName}}</h3>
+      </div>
+      <div id="company1" class="card-body">
+        <h4 id="jobTitle1" class="card-title">{{singleJob.position}}</h4>
+        <h4 id="jobTitle1" class="card-title">{{singleJob.link}}</h4>
+        <h4 id="jobTitle1" class="card-title">{{singleJob.initialSalary}}</h4>
+      </div>
+
+    </div>
+    {{/each}}
+  </section>
 </body>
+<script src="../public/assets/JS/cards.js"></script>
