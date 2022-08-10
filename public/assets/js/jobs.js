@@ -15,7 +15,12 @@ const finalIntInput = document.getElementById('finalInterview');
 const jobOfferInput = document.getElementById('jobOffer')
 const submitBtn = document.getElementById('submitBtn');
 
-// for when user clicks 'create jod card' button
+function rangValfunc(val) {
+    document.querySelector("#rangeVal").innerHTML = "$" + val;
+    radius = val;
+};
+
+// for when user clicks 'create job card' button
 submitBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const companyName = companyNameInput.value;
@@ -35,7 +40,7 @@ submitBtn.addEventListener('click', async (event) => {
     }
     
     try {
-        const response = await fetch('/jobcards', {
+        const response = await fetch('/jobCards', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,21 +49,11 @@ submitBtn.addEventListener('click', async (event) => {
                 company: companyNameInput.value,
                 position: positionInput.value,
                 link: jobUrlInput.value,
-                salary: salaryInput.value,
-                haveApplied: appliedInput.checked,
-                feedback: feedbackInput.checked,
-                recruiterName: recruiterNameInput.value,
-                recruiterPhone: recruiterPhoneInput.value,
-                recruiterEmail: recruiterEmailInput.value,
-                screeningInterview: screeeningIntInput.value,
-                technicalInterview: technicalIntInput.value,
-                finalInterview: finalIntInput.value,
-                jobOffer: jobOfferInput.value
+                salary: salaryInput.value
             })
         });
-
         await response.json();
-        window.location.reload(); //
+        window.location.reload();
     } catch (error) {
         alert(error);
     }

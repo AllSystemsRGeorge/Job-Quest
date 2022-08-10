@@ -4,28 +4,20 @@ const AllJobs = require('../seeds/jobs');
 
 // creates new job card with user input
 router.post('/jobCards', async (req, res) => {
+    
     const newJobCard = await Jobs.create({
+        userId: req.session.user.id,
         company: req.body.company,
         position: req.body.position,
         link: req.body.link,
-        salary: req.body.salary,
-        haveApplied:req.body.haveApplied,
-        feedback: req.body.feedback,
-        recruiterName: req.body.recruiterName,
-        recruiterPhone:req.body.recruiterPhone,
-        recruiterEmail: req.body.recruiterPhone,
-        // conditions for if dates not selected
-        screeningInterview: req.body.screeningInterview == "" ? null : req.body.screeningInterview,
-        technicalInterview: req.body.technicalInterview == "" ? null : req.body.technicalInterview,
-        finalInterview: req.body.finalInterview == "" ? null : req.body.finalInterview,
-        jobOffer: req.body.jobOffer
+        salary: req.body.salary
     });
 
     res.send(newJobCard)
 });
 
 
-// renders job form on /jobform extension
+// renders empty job form on /jobform extension
 router.get('/jobform', async (req,res) => {
     
     if (!req.session.isLoggedIn) {
@@ -35,6 +27,20 @@ router.get('/jobform', async (req,res) => {
         res.render('jobForm');
         }
     catch {
+        res.status(404).send("Error in fetching all jobCards");
+    }
+});
+
+// renders existing jobcard into job form on /jobform extension
+router.get('/jobform/:id', async (req,res) => {
+    try {
+        const dbSelectedJob = await Jobs.findByPk(req.params.id);
+        selectedJob = dbSelectedJob.get({plain:true});
+        console.log(selectedJob);
+        res.render('editJobForm', {
+            selectedJob
+        });
+    } catch {
         res.status(404).send("Error in fetching all jobCards");
     }
 });
@@ -67,26 +73,31 @@ router.get('/search', async (req, res) => {
 });
 
 // to update jobcards
-// router.put('/jobcards', async (req, res) => {
-//     const updateJobCard = await Jobs.create({
-//         company: req.body.company,
-//         position: req.body.position,
-//         link: req.body.link,
-//         salary: req.body.salary,
-//         haveApplied:req.body.haveApplied,
-//         feedback: req.body.feedback,
-//         recruiterName: req.body.recruiterName,
-//         recruiterPhone:req.body.recruiterPhone,
-//         recruiterEmail: req.body.recruiterPhone,
-//         // conditions for if dates not selected
-//         screeningInterview: req.body.screeningInterview == "" ? null : req.body.screeningInterview,
-//         technicalInterview: req.body.technicalInterview == "" ? null : req.body.technicalInterview,
-//         finalInterview: req.body.finalInterview == "" ? null : req.body.finalInterview,
-//         jobOffer: req.body.jobOffer
-//     });
+router.put('/jobform', async (req, res) => {
+    const updateJobCard = await Jobs.update(
+        {
+        company: req.body.company,
+        position: req.body.position,
+        link: req.body.link,
+        salary: req.body.salary,
+        haveApplied:req.body.haveApplied,
+        feedback: req.body.feedback,
+        recruiterName: req.body.recruiterName,
+        recruiterPhone:req.body.recruiterPhone,
+        recruiterEmail: req.body.recruiterPhone,
+        // conditions for if dates not selected
+        screeningInterview: req.body.screeningInterview == "" ? null : req.body.screeningInterview,
+        technicalInterview: req.body.technicalInterview == "" ? null : req.body.technicalInterview,
+        finalInterview: req.body.finalInterview == "" ? null : req.body.finalInterview,
+        jobOffer: req.body.jobOffer
+        },
+        {
+            where: {id: req.body.id }
+        }
+    );
 
-//     res.send(updateJobCard)
-// });
+    res.send(updateJobCard)
+});
 
 // to delete jobcards
 

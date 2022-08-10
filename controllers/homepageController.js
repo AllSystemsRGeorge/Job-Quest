@@ -52,30 +52,6 @@ router.get('/users/:userId', async (req, res) => {
     }
 });
 
-// router.get('/jobs', async (req, res) => {
-//     if(!req.session.isLoggedIn){
-//         return res.redirect('/');
-//     }
-
-//     try {
-//         const userJobsData = await Jobs.findAll({
-//             where: {
-//                 userId: req.session.user.id,
-//             },
-//         });
-
-//         const jobs = userJobsData.map(job => job.get({plain: true}));
-
-//         res.render('jobs', {
-//             jobs,
-//             isLoggedIn: req.session.isLoggedIn,
-//         });
-//     } catch (error) {
-//         res.status(500).json({error});
-//     }
-// });
-
-
 // logout 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {

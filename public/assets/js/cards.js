@@ -2,6 +2,7 @@
 const searchInput = document.querySelector('#searchInput');
 const searchBtn = document.querySelector('#searchBtn');
 const cardsContainer = document.querySelector('#cards');
+const editJobCard = document.getElementById('editBtn');
 
 
 const makeGetRequest = async (url) => {
@@ -61,3 +62,7 @@ searchBtn.addEventListener('click', async (e) => {
 //     renderSearchResult(jobs);
 // });
 
+// renders jobform by its perspective job card in order to edit job card
+function getJobForm(id) {
+    window.location.href = '/jobform/'+id
+}

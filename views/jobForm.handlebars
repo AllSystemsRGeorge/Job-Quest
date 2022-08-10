@@ -49,69 +49,13 @@
         <input type="input" class="form-control" id="jobLink">
         <label>Job Posting URL (Required) </label>
       </div>
-      <div class=" mb-3">
-        <label for="customRange3" class="form-label text-muted">Salary Range</label>
-        <input type="range" class="form-range" min="10,000" max="500,000 +" step="10,000" id="salary">
+      <div class="form-floating mb-3">
+        <label for="customRange3" class="form-label text-muted">Salary Range: <output id="rangeVal" class="fontSizing text-muted">Desired Salary</output></label> 
+        <br>
+        <br>
+        <input type="range" class="form-range" min="10000" max="500000" value="50000"step="10000" id="salary" oninput="rangValfunc(this.value)">
       </div>
       <button type="submit" class="btn btn-primary" id="submitBtn">Create Job Card</button>
-    </div>
-
-    <div class="dropdown w-100 d-flex justify-content-center">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Application Status
-      </button>
-      <ul class="dropdown-menu w-100">
-        <li>
-          <label for="applied" class="text-muted">Applied to job?</label>
-          <input type="checkbox" name="jobApplication" id="applicationStatus">
-        </li>
-        <li>
-          <label for="feedback" class="text-muted">Did you hear back from this company since you applied?</label>
-          <input type="checkbox" name="feedback" id="feedbackStatus">
-        </li>
-        <li>
-          <div class="form-floating mb-3 ">
-            <input type="input" class="form-control" id="recruiterName">
-            <label>Recruiter Name </label>
-          </div>
-        </li>
-        <li>
-          <div class="form-floating mb-3">
-            <input type="input" class="form-control" id="recruiterPhone">
-            <label>Recruiter Phone Number </label>
-          </div>
-        </li>
-        <li>
-          <div class="form-floating mb-3">
-            <input type="input" class="form-control" id="recruiterEmail">
-            <label>Recruiter Email </label>
-          </div>
-        </li>
-        <li>
-          <div class="form-floating mb-3 ">
-            <input type="datetime-local" class="form-control" name="screeningInt" id="screeningInterview">
-            <label for="screeningInt">Screening Interview</label>
-          </div>
-        </li>
-        <li>
-          <div class="form-floating mb-3 ">
-            <input type="datetime-local" class="form-control" name="screeningInt" id="technicalInterview">
-            <label for="screeningInt">Technical Interview</label>
-          </div>
-        </li>
-        <li>
-          <div class="form-floating mb-3 ">
-            <input type="datetime-local" class="form-control" name="screeningInt" id="finalInterview">
-            <label for="screeningInt">Final Interview</label>
-          </div>
-        </li>
-        <li>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label text-muted">Job Benefits</label>
-            <textarea class="form-control" id="jobOffer" rows="3" placeholder="Input Benefits Here"></textarea>
-          </div>
-        </li>
-      </ul>
     </div>
   </div>
 
