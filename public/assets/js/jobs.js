@@ -15,6 +15,11 @@ const finalIntInput = document.getElementById('finalInterview');
 const jobOfferInput = document.getElementById('jobOffer')
 const submitBtn = document.getElementById('submitBtn');
 
+function rangValfunc(val) {
+    document.querySelector("#rangeVal").innerHTML = "$" + val;
+    radius = val;
+};
+
 // for when user clicks 'create job card' button
 submitBtn.addEventListener('click', async (event) => {
     event.preventDefault();
