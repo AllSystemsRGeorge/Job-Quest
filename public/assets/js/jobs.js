@@ -44,16 +44,7 @@ submitBtn.addEventListener('click', async (event) => {
                 company: companyNameInput.value,
                 position: positionInput.value,
                 link: jobUrlInput.value,
-                salary: salaryInput.value,
-                haveApplied: appliedInput.checked,
-                feedback: feedbackInput.checked,
-                recruiterName: recruiterNameInput.value,
-                recruiterPhone: recruiterPhoneInput.value,
-                recruiterEmail: recruiterEmailInput.value,
-                screeningInterview: screeeningIntInput.value,
-                technicalInterview: technicalIntInput.value,
-                finalInterview: finalIntInput.value,
-                jobOffer: jobOfferInput.value
+                salary: salaryInput.value
             })
         });
         await response.json();
