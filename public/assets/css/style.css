@@ -100,3 +100,14 @@ background: linear-gradient(to right, #0087FF, green)
   flex-direction: row;
   align-items: center;
 }
+
+h3 {
+  color: #495057;
+  font-size: medium;
+  text-align: left;
+  padding-left: 10px;
+}
+
+#checkBox ul li {
+  list-style: none;
+}
