@@ -28,24 +28,23 @@ router.get('/jobCards', async (req,res) => {
     
 });
 
-// router.delete('/jobCards', async (req, res) => {
-//     if { Jobs } = req.params;
 
-//     const getTodoById = 'SELECT * FORM todos WHERE id = ?;';
-//     const deleteTodoById = 'DELETE FROM todos WHERE = ?;';
+router.delete('/jobCards/:id', async (req, res) => {
+    const jobsId  = req.params.id;
     
-//     try {
-//         const [ todos ] = await connection.query(getTodoById, [queryResult.insertId]);
+    try{
+    const jobs  = await Jobs.destroy ({
+            where: {
+               id: jobsId
+            },
+        });
 
-//         if(todos.length === 0) {
-//             return res.status(404).json({error: 'Job not found with that id!'});
-//         }
-//         await connection.query(deleteTodoById, todoId);
-//         res.json(todo[0]);
-//     } catch (error) {
-//         res.status(500).json({ error });
-//     }
-// });
+        res.json(jobs);
+
+    } catch(error) {
+        console.error(error);
+    }
+});
 
 
 
