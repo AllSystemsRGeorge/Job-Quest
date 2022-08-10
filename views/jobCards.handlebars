@@ -1,5 +1,6 @@
 <body>
   {{!-- nav bar section --}}
+  
   <section id="navBar">
 
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -31,10 +32,10 @@
 
     {{#each eachJob as |singleJob|}}
     <div class="card border-success mb-3" style="max-width: 20rem;">
-      <div id="card-name" class="card-header">
+      <div id="card-name"++ class="card-header">
         <h3>{{singleJob.company}}</h3>
         <div class="iconsDiv">
-          <button id="editBtn">
+          <button id="editBtn" onclick="getJobForm('{{singleJob.id}}')" >
             <img src="/assets/images/pen.png" align="center" width="20px" height="20px" alt="edit icon">
           </button>
           <button id="deleteBtn">
