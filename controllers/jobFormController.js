@@ -27,7 +27,7 @@ router.post('/jobCards', async (req, res) => {
 });
 
 
-// renders job form on /jobform extension
+// renders empty job form on /jobform extension
 router.get('/jobform', async (req,res) => {
     
     if (!req.session.isLoggedIn) {
@@ -37,6 +37,20 @@ router.get('/jobform', async (req,res) => {
         res.render('jobForm');
         }
     catch {
+        res.status(404).send("Error in fetching all jobCards");
+    }
+});
+
+// renders existing jobcard into job form on /jobform extension
+router.get('/jobform/:id', async (req,res) => {
+    try {
+        const dbSelectedJob = await Jobs.findByPk(req.params.id);
+        selectedJob = dbSelectedJob.get({plain:true});
+        console.log(selectedJob);
+        res.render('editJobForm', {
+            selectedJob
+        });
+    } catch {
         res.status(404).send("Error in fetching all jobCards");
     }
 });
@@ -69,8 +83,9 @@ router.get('/search', async (req, res) => {
 });
 
 // to update jobcards
-router.put('/jobcards', async (req, res) => {
-    const updateJobCard = await Jobs.create({
+router.put('/jobform', async (req, res) => {
+    const updateJobCard = await Jobs.update(
+        {
         company: req.body.company,
         position: req.body.position,
         link: req.body.link,
@@ -85,7 +100,11 @@ router.put('/jobcards', async (req, res) => {
         technicalInterview: req.body.technicalInterview == "" ? null : req.body.technicalInterview,
         finalInterview: req.body.finalInterview == "" ? null : req.body.finalInterview,
         jobOffer: req.body.jobOffer
-    });
+        },
+        {
+            where: {id: req.body.id }
+        }
+    );
 
     res.send(updateJobCard)
 });

@@ -15,7 +15,7 @@ const finalIntInput = document.getElementById('finalInterview');
 const jobOfferInput = document.getElementById('jobOffer')
 const submitBtn = document.getElementById('submitBtn');
 
-// for when user clicks 'create jod card' button
+// for when user clicks 'create job card' button
 submitBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const companyName = companyNameInput.value;
@@ -57,7 +57,7 @@ submitBtn.addEventListener('click', async (event) => {
             })
         });
         await response.json();
-        window.location.reload(); //
+        window.location.reload();
     } catch (error) {
         alert(error);
     }
