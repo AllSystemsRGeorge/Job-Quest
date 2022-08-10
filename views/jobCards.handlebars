@@ -1,6 +1,6 @@
 <body>
   {{!-- nav bar section --}}
-  
+
   <section id="navBar">
 
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -31,27 +31,41 @@
   <section id="cards" class="cards">
 
     {{#each eachJob as |singleJob|}}
-    <div class="card border-success mb-3" style="max-width: 20rem;">
-      <div id="card-name"++ class="card-header">
-        <h3>{{singleJob.company}}</h3>
-        <div class="iconsDiv">
-          <button id="editBtn" onclick="getJobForm('{{singleJob.id}}')" >
-            <img src="/assets/images/pen.png" align="center" width="20px" height="20px" alt="edit icon">
-          </button>
-          <button id="deleteBtn" onclick="deleteCard('{{{singleJob.id}}}')">
-            <img src="/assets/images/trash.png" align="center" width="20px" height="20px" alt="delete icon">
-          </button>
+
+     <div class="card border-success mb-3" style="max-width: 20rem;">
+        <div id="card-name" ++ class="card-header">
+          <h3>{{singleJob.company}}</h3>
+          <div class="iconsDiv">
+            <button id="editBtn" onclick="getJobForm('{{singleJob.id}}')">
+              <img src="/assets/images/pen.png" align="center" width="20px" height="20px" alt="edit icon">
+            </button>
+            <button id="deleteBtn" onclick="deleteCard('{{{singleJob.id}}}')">>
+              <img src="/assets/images/trash.png" align="center" width="20px" height="20px" alt="delete icon">
+            </button>
+          </div>
+        </div>
+        <div id="company1" class="card-body">
+          <h4 id="jobTitle1" class="card-title">{{singleJob.position}}</h4>
+          <h4 id="jobTitle1" class="card-title">{{singleJob.link}}</h4>
+          <h4 id="jobTitle1" class="card-title">{{singleJob.salary}}</h4>
+        </div>
+        <div class="container">
+          <form>
+            <div class="form-group">
+              <label id="label" for="comment" style="font-weight: bold;">Comment:</label>
+            </div>
+            <div>
+              <textarea id="comment" class="form-control" rows="2"></textarea>
+            </div>
+          </form>
         </div>
       </div>
-      <div id="company1" class="card-body">
-        <h4 id="jobTitle1" class="card-title">{{singleJob.position}}</h4>
-        <h4 id="jobTitle1" class="card-title">{{singleJob.link}}</h4>
-        <h4 id="jobTitle1" class="card-title">{{singleJob.salary}}</h4>
-      </div>
-
-    </div>
     {{/each}}
+
   </section>
+
 </body>
+
 <script src="assets/JS/cards.js"></script>
 <script src="assets/JS/Delete.js"></script>
+
