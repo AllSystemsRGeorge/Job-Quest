@@ -2,7 +2,7 @@
 <section id="navBar">
 
     <nav class="navbar navbar-expand-lg navbar-light">
-        <img src="/assets/images/Job Quest logo.jpeg" class="logo" height="100px">
+        <a href="/jobcards"><img src="/assets/images/Job Quest logo.jpeg" class="logo" height="100px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -107,11 +107,11 @@
                 <textarea class="form-control" id="jobOffer" rows="3" placeholder="Input Benefits Here"></textarea>
             </div>
         
-            <button type="submit" class="btn btn-primary" id="submitBtn">Update Job Card</button>
+            <button type="submit" class="btn btn-primary" id="updateBtn" onclick="updateJob('{{selectedJob.id}}')">Update Job Card</button>
         </div>
     </div>
 </section>
-<script src="/assets/js/jobs.js"></script>
+<script src="/assets/js/editjobs.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
