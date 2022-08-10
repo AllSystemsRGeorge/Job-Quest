@@ -4,16 +4,8 @@ const companyNameInput = document.getElementById('companyName');
 const positionInput = document.getElementById('positionTitle');
 const salaryInput = document.getElementById('salary');
 const jobUrlInput = document.getElementById('jobLink');
-const appliedInput = document.getElementById('applicationStatus');
-const feedbackInput = document.getElementById('feedbackStatus');
-const recruiterNameInput = document.getElementById('recruiterName');
-const recruiterPhoneInput = document.getElementById('recruiterPhone');
-const recruiterEmailInput = document.getElementById('recruiterEmail');
-const screeeningIntInput = document.getElementById('screeningInterview');
-const technicalIntInput = document.getElementById('technicalInterview');
-const finalIntInput = document.getElementById('finalInterview');
-const jobOfferInput = document.getElementById('jobOffer')
-const submitBtn = document.getElementById('submitBtn');
+const createJobBtn = document.getElementById('createBtn');
+
 
 function rangValfunc(val) {
     document.querySelector("#rangeVal").innerHTML = "$" + val;
@@ -21,7 +13,7 @@ function rangValfunc(val) {
 };
 
 // for when user clicks 'create job card' button
-submitBtn.addEventListener('click', async (event) => {
+createJobBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const companyName = companyNameInput.value;
     const position = positionInput.value;
@@ -40,7 +32,7 @@ submitBtn.addEventListener('click', async (event) => {
     }
     
     try {
-        const response = await fetch('/jobCards', {
+        const response = await fetch('/jobform', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,4 +49,4 @@ submitBtn.addEventListener('click', async (event) => {
     } catch (error) {
         alert(error);
     }
-})
+});
