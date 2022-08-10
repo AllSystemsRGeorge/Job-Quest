@@ -101,7 +101,8 @@ background: linear-gradient(to right, #0087FF, green)
   align-items: center;
 }
 
-h3 {
+/* style for form headings */
+h5 {
   color: #495057;
   font-size: medium;
   text-align: left;
