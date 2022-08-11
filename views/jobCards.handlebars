@@ -19,9 +19,10 @@
           </li>
         </ul>
         <form id="formId" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
+          <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
         </form>
         <button class="btn btn-outline-success my-2 my-lg-10" type="submit" id="searchBtn">Search</button>
+        <button class="btn btn-outline-success my-2 my-lg-10" type="submit" id="clearBtn">Clear</button>
         <button type="submit" class="btn btn-primary" id="logOutBtn">Log Out</button>
       </div>
     </nav>
@@ -45,10 +46,102 @@
           </div>
         </div>
         <div id="company1" class="card-body">
-          <h4 id="jobTitle1" class="card-title">{{singleJob.position}}</h4>
-          <a href="{{singleJob.link}}" target="_blank">Job Description</a>
-          <h4 id="jobTitle1" class="card-title">{{singleJob.salary}}</h4>
+          <h4 id="jobTitle1" class="card-title">Position: {{singleJob.position}}</h4>
+          <h4>Job Description: <a href="{{singleJob.link}}" target="_blank">link</a></h4>
+          <h6 id="jobTitle1" class="card-title">Salary: {{#moneyFormat singleJob.salary}}{{/moneyFormat}}</h6>
+          {{#if haveApplied }}
+          <h6>
+          <label for="checkbox">
+            Applied to job: 
+            <input type="checkbox" id="appliedTo" checked class="card-title"></input>
+          </label>
+          </h6>
+          {{/if}}
+          {{#unless haveApplied}}
+          <h6>
+          <label for="checkbox">
+            Applied to job: 
+            <input type="checkbox" id="appliedTo" class="card-title"></input>
+          </label>
+          </h6>
+          {{/unless}}
 
+          {{#if feedback }}
+          <h6>
+          <label for="checkbox">
+            Any feedback? 
+            <input type="checkbox" id="feedback" checked class="card-title"></input>
+          </label>
+          </h6>
+
+          {{/if}}
+          {{#unless feedback}}
+          <h6>
+          <label for="checkbox">
+            Any feedback? 
+            <input type="checkbox" id="feedback" class="card-title"></input>
+          </label>
+          </h6>
+          {{/unless}}
+          <div>
+            <h4>Recruiter</h4>
+          <h6>
+            Name: {{#formatStringData recruiterName}}{{/formatStringData}}
+          </h6>
+          
+          <h6>
+            Phone Nbr: {{#formatStringData recruiterPhone}}{{/formatStringData}}
+          </h6>
+          <h6>
+            Email: {{#formatStringData recruiterEmail}}{{/formatStringData}}
+          </h6>
+          </div>
+
+          <div>
+            <h4>Interview</h4>
+            <h6>
+              Screening Int.: 
+              {{#dateFormat screeningInterview}} {{/dateFormat}}
+            </h6>
+            <h6>
+              Technical Int.: 
+              {{#dateFormat technicalInterview}} {{/dateFormat}}
+            </h6>
+            <h6>
+              Final Int.: 
+              {{#dateFormat finalInterview}} {{/dateFormat}}
+            </h6>
+
+          </div>
+          <div>
+            {{#if jobOffer }}
+          <h6>
+          <label for="checkbox">
+            Job Offer: 
+            <input type="checkbox" id="jobOffer" checked class="card-title"></input>
+          </label>
+          </h6>
+
+          {{/if}}
+          {{#unless jobOffer}}
+          <h6>
+          <label for="checkbox">
+            Job Offer:  
+            <input type="checkbox" id="jobOffer" class="card-title"></input>
+          </label>
+          </h6>
+          {{/unless}}
+          </div>
+
+          
+
+         
+
+
+          
+
+
+  
         </div>
       </div>
     {{/each}}
@@ -60,5 +153,14 @@
 
 <script src="assets/js/cards.js"></script>
 <script src="assets/js/Delete.js"></script>
-
+{{!-- 
+    haveApplied: false,
+    feedback: false,
+    recruiterName: '',
+    recruiterPhone: '',
+    recruiterEmail: '',
+    screeningInterview: null,
+    technicalInterview: null,
+    finalInterview: null,
+    jobOffer: '', --}}
 

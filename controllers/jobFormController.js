@@ -13,7 +13,7 @@ router.post('/jobform', async (req, res) => {
         salary: req.body.salary
     });
 
-    res.send(newJobCard)
+    res.send(newJobCard);
 });
 
 
@@ -45,26 +45,20 @@ router.get('/jobform/:id', async (req,res) => {
 });
 
 router.get('/search', async (req, res) => {
-    // if (!req.session.isLoggedIn) {
-    //         return res.redirect('/')
-    //     }
-    console.log('calling the backend');
+    if (!req.session.isLoggedIn) {
+            return res.redirect('/')
+        }
     try {
 
         const company = req.query.company;
-         // const everyJob = Jobs.findAll({
-        //     where: {
-            // userId: req.params.userId;
-            // company,
-        //         }
-        // });
-
-        // *** remove the following 2 lines whenever the db is accessible ***
-        // *** and then rename the filteredJobs to everyJob ***
-
-        const everyJob = AllJobs;
-        const filteredJobs = everyJob.filter((job) => job.companyName === company);
-        res.send(filteredJobs);
+        const everyJob = await Jobs.findAll({
+            where: {
+            userId: req.session.user.id,
+            company,
+                }
+        });
+        
+        res.send(everyJob);
 
     } catch {
         res.status(404).send("Error in fetching all jobCards");
