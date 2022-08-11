@@ -48,10 +48,10 @@
                 <label>Job Posting URL (Required) </label>
             </div>
             <div class="form-floating mb-3">
-                <label for="customRange3" class="form-label text-muted">Salary Range</label>
+                <label for="customRange3" class="form-label text-muted">Salary Range: <output id="rangeVal" class="fontSizing text-muted">${{selectedJob.salary}}</output></label> 
                 <br>
                 <br>
-                <input type="range" class="form-range" min="10,000" max="500,000 +" step="10,000" id="salary">
+                <input type="range" class="form-range" min="10000" max="500000" step="10000" id="salary" oninput="rangValfunc(this.value)" value="rangeValfunc({{selectedJob.salary}})">
             </div>
             <div class="form-floating mb-3">
                 <h5>Application Status</h5>
@@ -60,12 +60,12 @@
                 <ul>
                     <li>
                         <label for="applied" class="text-muted">Applied to job?</label>
-                        <input type="checkbox" name="jobApplication" id="applicationStatus">
+                        <input type="checkbox" name="jobApplication" id="applicationStatus" value={{selectedJob.haveApplied}}>
                     </li>
                     <li>
                         <label for="feedback" class="text-muted">Did you hear back from this company since you
                         applied?</label>
-                        <input type="checkbox" name="feedback" id="feedbackStatus">
+                        <input type="checkbox" name="feedback" id="feedbackStatus" value={{selectedJob.feedback}}>
                     </li>
                 </ul>
             </div>
@@ -73,30 +73,30 @@
                 <h5>Recruiter Info</h5>
             </div>
             <div class="form-floating mb-3">
-                <input type="input" class="form-control" id="recruiterName">
+                <input type="input" class="form-control" id="recruiterName" value={{selectedJob.recruiterName}}>
                 <label>Recruiter Name </label>
             </div>
             <div class="form-floating mb-3">
-                <input type="input" class="form-control" id="recruiterPhone">
+                <input type="input" class="form-control" id="recruiterPhone" value={{selectedJob.recruiterPhone}}>
                 <label>Recruiter Phone Number </label>
             </div>
             <div class="form-floating mb-3">
-                <input type="input" class="form-control" id="recruiterEmail">
+                <input type="input" class="form-control" id="recruiterEmail" value={{selectedJob.recruiterEmail}}>
                 <label>Recruiter Email </label>
             </div>
             <div class="form-floating mb-3">
                 <h5>Interview Status</h5>
             </div>
             <div class="form-floating mb-3 ">
-                <input type="datetime-local" class="form-control" name="screeningInt" id="screeningInterview">
+                <input type="datetime-local" class="form-control" name="screeningInt" id="screeningInterview" value={{selectedJob.screeningInterview}}>
                 <label for="screeningInt">Screening Interview</label>
             </div>
             <div class="form-floating mb-3 ">
-                <input type="datetime-local" class="form-control" name="screeningInt" id="technicalInterview">
+                <input type="datetime-local" class="form-control" name="screeningInt" id="technicalInterview" value={{selectedJob.technicalInterview}}>
                 <label for="screeningInt">Technical Interview</label>
             </div>
             <div class="form-floating mb-3 ">
-                <input type="datetime-local" class="form-control" name="screeningInt" id="finalInterview">
+                <input type="datetime-local" class="form-control" name="screeningInt" id="finalInterview" value={{selectedJob.finalInterview}}>
                 <label for="screeningInt">Final Interview</label>
             </div>
             <div class="form-floating mb-3">
@@ -104,7 +104,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label text-muted">Job Benefits</label>
-                <textarea class="form-control" id="jobOffer" rows="3" placeholder="Input Benefits Here"></textarea>
+                <textarea class="form-control" id="jobOffer" rows="3" placeholder="Input Benefits Here">{{selectedJob.jobOffer}}</textarea>
             </div>
         
             <button type="submit" class="btn btn-primary" id="updateBtn" onclick="updateJob('{{selectedJob.id}}')">Update Job Card</button>
