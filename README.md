@@ -51,7 +51,7 @@ THEN I end my session and redirected to the login page
 ​
 ### Links
 ​
-- Live deployment[Heroku-page](https://job-quest-project2.herokuapp.com/)
+- Live deployment[Heroku-page](https://jobquest.herokuapp.com/)
 - Github repository [Github](https://github.com/AllSystemsRGeorge/Job-Quest.git)
 ​
 ## My process
@@ -82,18 +82,18 @@ Although we are proud of what we have made, there are still more room for improv
 ## Authors
 ​
 - Portfolio
-  - [Moussa Dia](https://www.your-site.com) 
-  - [George Durando](https://www.your-site.com)
-  - [Lillian Kim](https://www.your-site.com)
+  - [Moussa Dia](https://theanswer07.github.io/Portfolio-MD/) 
+  - [George Durando](https://allsystemsrgeorge.github.io/PortfolioProfile/)
+  - [Lillian Kim](https://liliankim.github.io/homework-2/)
   - [Adriane Ocampo](https://ocampoad.github.io/Adriane_Ocampo_Portfolio/)
-  - [Monineath Sar](https://www.your-site.com)
+  - [Monineath Sar](https://monineathsar.github.io/My_Portfolio-Challenge2/)
 
 - Github
-  - [Moussa Dia](https://www.your-site.com) 
-  - [George Durando](https://www.your-site.com)
-  - [Lillian Kim](https://www.your-site.com)
+  - [Moussa Dia](https://github.com/TheAnswer07) 
+  - [George Durando](https://github.com/AllSystemsRGeorge)
+  - [Lillian Kim](https://github.com/liliankim)
   - [Adriane Ocampo](https://github.com/ocampoad)
-  - [Monineath Sar](https://www.your-site.com)
+  - [Monineath Sar](https://github.com/monineathsar)
   
 ## Acknowledgments
 ​ 
