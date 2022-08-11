@@ -1,7 +1,6 @@
 // js functionality for front end of jobcards
 const searchInput = document.querySelector('#searchInput');
 const searchBtn = document.querySelector('#searchBtn');
-const clearBtn = document.querySelector('#clearBtn');
 const cardsContainer = document.querySelector('#cards');
 const editJobCard = document.getElementById('editBtn');
 
@@ -124,12 +123,6 @@ searchBtn.addEventListener('click', async (e) => {
   renderSearchResult(jobs);
 });
 
-clearBtn.addEventListener('click', async (e) => {
-  e.preventDefault;
-  const url = `/jobCards/clear`;
-  const jobs = await makeGetRequest(url);
-  renderSearchResult(jobs);
-});
 
 // renders jobform by its perspective job card in order to edit job card
 function getJobForm(id) {
