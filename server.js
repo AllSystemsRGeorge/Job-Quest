@@ -22,7 +22,8 @@ hbs.handlebars.registerHelper('dateFormat', function(dateTime){
     if (!dateTime){
         return "N/A";
     }
-    return dateTime.toUTCString();
+    let date = new Date(dateTime);
+    return date.toLocaleDateString() + " " + date.toLocaleTimeString();
 });
 
 hbs.handlebars.registerHelper('formatStringData', function(data){

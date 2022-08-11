@@ -55,9 +55,10 @@
           </div>
         </div>
         <div id="company1" class="card-body">
-          <h4 id="jobTitle1" class="card-title">Position: {{singleJob.position}}</h4>
-          <h4>Job Description: <a href="{{singleJob.link}}" target="_blank">link</a></h4>
-          <h6 id="jobTitle1" class="card-title">Salary estimate: {{#moneyFormat singleJob.salary}}{{/moneyFormat}}</h6>
+          <h4>Job Description</h4>
+          <h6>POSITION: {{singleJob.position}}</h6>
+          <h6>JOB POST: <a href="{{singleJob.link}}" target="_blank">link</a></h6>
+          <h6>LISTED SALARY: {{#moneyFormat singleJob.salary}}{{/moneyFormat}}</h6>
           {{#if haveApplied }}
           <h6>
           <label for="checkbox">
@@ -95,29 +96,29 @@
           <div>
             <h4>Recruiter</h4>
           <h6>
-            Name: {{#formatStringData recruiterName}}{{/formatStringData}}
+            NAME: {{#formatStringData recruiterName}}{{/formatStringData}}
           </h6>
           
           <h6>
-            Phone: {{#formatStringData recruiterPhone}}{{/formatStringData}}
+            PHONE: {{#formatStringData recruiterPhone}}{{/formatStringData}}
           </h6>
           <h6>
-            Email: {{#formatStringData recruiterEmail}}{{/formatStringData}}
+            EMAIL: {{#formatStringData recruiterEmail}}{{/formatStringData}}
           </h6>
           </div>
 
           <div>
             <h4>Interview</h4>
             <h6>
-              Screening Interview: <br>
+              SCREENING INTERVIEW: <br>
               {{#dateFormat screeningInterview}} {{/dateFormat}}
             </h6>
             <h6>
-              Technical Interview: <br>
+              TECHNICAL INTERVIEW: <br>
               {{#dateFormat technicalInterview}} {{/dateFormat}}
             </h6>
             <h6>
-              Final Interview: <br>
+              FINAL INTERVIEW: <br>
               {{#dateFormat finalInterview}} {{/dateFormat}}
             </h6>
           </div>
@@ -126,20 +127,10 @@
             Job Offer:
             </h4>
             <h6>
-            Benefits package: <br>
+            BENEFITS PACKAGE: <br>
             {{#formatStringData jobOffer}}{{/formatStringData}}
             </h6>
           </div>
-
-          
-
-         
-
-
-          
-
-
-  
         </div>
       </div>
     {{/each}}

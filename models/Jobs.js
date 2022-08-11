@@ -68,17 +68,17 @@ Jobs.init(
             defaultValue: null,
         },
         screeningInterview: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null,
         },
         technicalInterview: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null,
         },
         finalInterview: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null,
         },
