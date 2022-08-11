@@ -22,13 +22,20 @@
           <input class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
         </form>
         <button class="btn btn-outline-success my-2 my-lg-10" type="submit" id="searchBtn">Search</button>
-        <button type="submit" class="btn btn-primary" id="logOutBtn">Log Out</button>
+        <button class="btn btn-primary" id="logOutBtn">Log Out</button>
       </div>
     </nav>
 
   </section>
+  <h3>
+    <span class="lead font-italic" id="funQuote"></span>
+  </h3>
+<h3 id="author"></h3> 
+
   {{!-- job cards section --}}
   <section id="cards" class="cards">
+
+
 
     {{#each eachJob as |singleJob|}}
 
@@ -60,5 +67,6 @@
 
 <script src="assets/js/cards.js"></script>
 <script src="assets/js/Delete.js"></script>
-
+<script src="assets/js/LogOut.js"></script>
+<script src="/assets/js/motivationalQ.js"></script>
 

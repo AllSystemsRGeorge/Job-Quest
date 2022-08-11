@@ -54,7 +54,8 @@ router.get('/users/:userId', async (req, res) => {
 
 // logout 
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
+    
+    if (req.session.isLoggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
       });
