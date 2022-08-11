@@ -40,6 +40,7 @@ const formatDateTime = (dateTime) => {
   return date.toUTCString();
 }
 
+// to display search results
 const renderSearchResult = (jobs) => {
   cardsContainer.innerHTML = '';
   for (let job of jobs) {
@@ -115,6 +116,7 @@ const renderSearchResult = (jobs) => {
   }
 };
 
+// search button on click
 searchBtn.addEventListener('click', async (e) => {
   e.preventDefault;
   const companyName = searchInput.value.trim();
@@ -122,7 +124,6 @@ searchBtn.addEventListener('click', async (e) => {
   const jobs = await makeGetRequest(url);
   renderSearchResult(jobs);
 });
-
 
 // renders jobform by its perspective job card in order to edit job card
 function getJobForm(id) {

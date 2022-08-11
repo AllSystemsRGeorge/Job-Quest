@@ -1,3 +1,4 @@
+// dependencies
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
@@ -11,6 +12,8 @@ const cors = require('cors')
 const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 
 const sequelize = require('./config/connection');
+
+// routes global variables
 const routes = require('./controllers/homepageController');
 const jobCardRoute = require('./controllers/jobCardController');
 const jobFormRoute = require('./controllers/jobFormController');
@@ -76,6 +79,7 @@ app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// routes for SignUp/LogIn page, jobform page, and jobCard page
 app.use(routes);
 app.use(jobCardRoute);
 app.use(jobFormRoute);
