@@ -1,7 +1,7 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Jobs extends Model {}
+class Jobs extends Model { }
 
 Jobs.init(
     {
@@ -43,12 +43,12 @@ Jobs.init(
             allowNull: true,
         },
         haveApplied: {
-            type: DataTypes.BOOLEAN ,
+            type: DataTypes.BOOLEAN,
             allowNull: true,
             defaultValue: false,
         },
         feedback: {
-            type: DataTypes.BOOLEAN ,
+            type: DataTypes.BOOLEAN,
             allowNull: true,
             defaultValue: false,
         },

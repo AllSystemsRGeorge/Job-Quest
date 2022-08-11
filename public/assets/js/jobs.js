@@ -18,19 +18,19 @@ createJobBtn.addEventListener('click', async (event) => {
     const companyName = companyNameInput.value;
     const position = positionInput.value;
     const jobUrl = jobUrlInput.value;
-    if(companyName.trim().length === 0){ 
+    if (companyName.trim().length === 0) {
         alert('Company name cannot be empty');
         return;
     }
-    if(position.trim().length === 0){
+    if (position.trim().length === 0) {
         alert('position title cannot be empty');
         return;
     }
-    if(jobUrl.trim().length === 0){
+    if (jobUrl.trim().length === 0) {
         alert('Job posting URL cannot be empty');
         return;
     }
-    
+
     try {
         const response = await fetch('/jobform', {
             method: 'POST',

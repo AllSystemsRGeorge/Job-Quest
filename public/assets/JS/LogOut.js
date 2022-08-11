@@ -2,14 +2,14 @@ const logout = async () => {
 
     const response = await fetch('/logout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
     });
 
-    if (response.ok){
+    if (response.ok) {
         document.location.replace('/');
-    } else{
+    } else {
         alert(response.statusText);
-    }   
+    }
 };
 
-document.querySelector('#logOutBtn').addEventListener('click',logout);
+document.querySelector('#logOutBtn').addEventListener('click', logout);

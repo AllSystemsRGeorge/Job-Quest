@@ -1,83 +1,82 @@
 body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-    color: #0087FF;
+  color: #0087FF;
 }
 
 body {
-    height: 100%;
-    width: 100%;
-  }
-  
-  #navBar {
-      margin: auto;
-      display: flex;
-      padding: 5px 0;
-      justify-content: space-around;
-  }
-  
-  #navBar ul li {
-      list-style: none;
-      margin: 10px 100px;
-      font-size: small;
-      flex-wrap: nowrap;
-  }
-  
-  .card {
-    --bs-card-bg: #ecf1f9;
-  }
+  height: 100%;
+  width: 100%;
+}
 
-  .cards {
-    display: flex;
-    margin: 10px 50px, 30px;
-    justify-content: space-evenly;
-    position:absolute;
-    padding: 15px 70px;
-    flex-wrap: wrap;
-  }
-  
-  h4 {
-    color: green;
-  }
-  
-  h4 p {
-    color: black;
-  }
-  
-  .card-body {
-    background-color: #ecf1f9;
-  }
-  
-  .card-header:first-child {
-      background-color: #2f4d7f;
-      color: #ecf1f9;
-      font-size:medium;
-      text-align: center;
-      font-weight: bold;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-  }
+#navBar {
+  margin: auto;
+  display: flex;
+  padding: 5px 0;
+  justify-content: space-around;
+}
 
-  h3 {
-    color: #ecf1f9;
-    size: small;
-    text-align: center;
-  }
+#navBar ul li {
+  list-style: none;
+  margin: 10px 100px;
+  font-size: small;
+  flex-wrap: nowrap;
+}
 
-  .gradient-custom{
-    background:#0087FF;
+.card {
+  --bs-card-bg: #ecf1f9;
+}
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right,#0087FF, green);
+.cards {
+  display: flex;
+  margin: 10px 50px, 30px;
+  justify-content: space-evenly;
+  position: absolute;
+  padding: 15px 70px;
+  flex-wrap: wrap;
+}
 
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, #0087FF, green)
+h4 {
+  color: green;
+}
 
-  }
+h4 p {
+  color: black;
+}
+
+.card-body {
+  background-color: #ecf1f9;
+}
+
+.card-header:first-child {
+  background-color: #2f4d7f;
+  color: #ecf1f9;
+  font-size: medium;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h3 {
+  color: #ecf1f9;
+  size: small;
+  text-align: center;
+}
+
+.gradient-custom {
+  background: #0087FF;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #0087FF, green);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #0087FF, green)
+}
 
 #editBtn {
   background: transparent;
@@ -118,5 +117,5 @@ h5 {
 }
 
 #author {
-  color:black;
+  color: black;
 }

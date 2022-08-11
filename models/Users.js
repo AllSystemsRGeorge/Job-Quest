@@ -1,8 +1,8 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcryptjs');
 
-class Users extends Model {}
+class Users extends Model { }
 
 Users.init(
     {
@@ -41,7 +41,7 @@ Users.init(
                 }
             },
             beforeUpdate: async (user) => {
-                if(user.password.trim().length > 0){
+                if (user.password.trim().length > 0) {
                     try {
                         const hashedPassword = await bcrypt.hash(user.password, 8);
                         user.password = hashedPassword;

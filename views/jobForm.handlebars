@@ -1,35 +1,35 @@
-  {{!-- nav bar section --}}
-  <section id="navBar">
+{{!-- nav bar section --}}
+<section id="navBar">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="/jobcards"><img src="/assets/images/Job Quest logo.jpeg" class="logo" height="100px"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a href="/jobcards"><img src="/assets/images/Job Quest logo.jpeg" class="logo" height="100px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Create Job Card</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/jobcards">Your Job Cards</a>
-          </li>
-        </ul>
-        <form id="formId" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
-        </form>
-        <button class="btn btn-outline-success my-2 my-lg-10" type="submit">Search</button>
-        <button class="btn btn-primary" id="logOutBtn">Log Out</button>
-      </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Create Job Card</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/jobcards">Your Job Cards</a>
+        </li>
+      </ul>
+      <form id="formId" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
+      </form>
+      <button class="btn btn-outline-success my-2 my-lg-10" type="submit">Search</button>
+      <button class="btn btn-primary" id="logOutBtn">Log Out</button>
+    </div>
+  </nav>
 
-  </section>
-  <h3>
-    <span class="lead font-italic" id="funQuote"></span>
-  </h3>
-<h3 id="author"></h3> 
+</section>
+<h3>
+  <span class="lead font-italic" id="funQuote"></span>
+</h3>
+<h3 id="author"></h3>
 {{!-- job form section --}}
 <section>
   <div class="d-flex align-items-center flex-column ">
@@ -53,7 +53,8 @@
         <label for="customRange3" class="form-label text-muted">Salary Range: <output id="rangeVal" class="fontSizing text-muted">$50000</output></label> 
         <br>
         <br>
-        <input type="range" class="form-range" min="10000" max="500000" value="50000"step="10000" id="salary" oninput="rangValfunc(this.value)">
+        <input type="range" class="form-range" min="10000" max="500000" value="50000" step="10000" id="salary"
+          oninput="rangValfunc(this.value)">
       </div>
       <button type="submit" class="btn btn-primary" id="createBtn">Create Job Card</button>
     </div>

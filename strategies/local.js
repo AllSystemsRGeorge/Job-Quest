@@ -14,23 +14,23 @@ passport.deserializeUser(async (username, done) => {
 });
 
 passport.use(new LocalStrategy(
-    async function(username, password, done) {
-      const user = await Users.findOne({where: { username: username }});
-      try {
-        if (!user) {
-          done(null, false);
+  async function (username, password, done) {
+    const user = await Users.findOne({ where: { username: username } });
+    try {
+      if (!user) {
+        done(null, false);
+      } else {
+        if (user.username === username) {
+          done(null, user)
         } else {
-          if (user.username === username) {
-            done(null, user)
-          } else {
-            done(null, false);
-          }
+          done(null, false);
         }
-      } catch (error) {
-        done(err,false);
       }
-      
-      }
-  ));
+    } catch (error) {
+      done(err, false);
+    }
 
-  module.exports = passport;
+  }
+));
+
+module.exports = passport;
