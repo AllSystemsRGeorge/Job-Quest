@@ -18,6 +18,26 @@ const jobFormRoute = require('./controllers/jobFormController');
 // handlebars init
 const hbs = exphbs.create({});
 const viewsPath = path.join(__dirname, './views');
+hbs.handlebars.registerHelper('dateFormat', function(dateTime){
+    if (!dateTime){
+        return "N/A";
+    }
+    return dateTime.toUTCString();
+});
+
+hbs.handlebars.registerHelper('formatStringData', function(data){
+    if (!data){
+        return "N/A";
+    }
+    return data;
+});
+
+hbs.handlebars.registerHelper('moneyFormat', function(value){
+    if (!value){
+        return "N/A";
+    }
+    return `$${parseInt(value).toFixed(2)}`;
+});
 
 
 // express session settings

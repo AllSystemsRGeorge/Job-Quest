@@ -17,7 +17,7 @@ router.get('/jobCards', async (req,res) => {
         everyJob = dbEveryJob.get({plain:true});
         // const everyJob = dbEveryJob.map(everyJobs => everyJobs.get({plain:true}));
         eachJob = everyJob.jobs
-        console.log(everyJob.jobs)
+        // console.log(everyJob.jobs)
         // everyJob.jobs[0].dataValues.id
         res.render('jobCards', {
             eachJob
@@ -28,6 +28,30 @@ router.get('/jobCards', async (req,res) => {
     
 });
 
+router.get('/jobCards/clear', async (req,res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/')
+    }
+    try {
+       
+        const dbEveryJob = await Users.findByPk(req.session.user.id, {
+            include: [{
+                model: Jobs
+            }]
+        });
+        everyJob = dbEveryJob.get({plain:true});
+        // const everyJob = dbEveryJob.map(everyJobs => everyJobs.get({plain:true}));
+        eachJob = everyJob.jobs
+        // console.log(everyJob.jobs)
+        // everyJob.jobs[0].dataValues.id
+        res.send(
+            eachJob
+        );
+    } catch (e) {
+        res.status(404).send("Error in fetching all jobCards");
+    }
+    
+});
 
 router.delete('/jobCards/:id', async (req, res) => {
     const jobsId  = req.params.id;
