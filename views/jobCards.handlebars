@@ -19,7 +19,8 @@
           </li>
         </ul>
         <form id="formId" class="form-inline my-2 my-lg-0">
-          <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search for a job card..." aria-label="Search">
+          <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search for a job card..."
+            aria-label="Search">
         </form>
         <button class="btn btn-outline-success my-2 my-lg-10" type="submit" id="searchBtn">Search</button>
 
@@ -33,16 +34,14 @@
   <h3>
     <span class="lead font-italic" id="funQuote"></span>
   </h3>
-<h3 id="author"></h3> 
+  <h3 id="author"></h3>
 
   {{!-- job cards section --}}
   <section id="cards" class="cards">
 
-
-
     {{#each eachJob as |singleJob|}}
 
-     <div class="card border-success mb-3" style="max-width: 20rem;">
+      <div class="card border-success mb-3" style="max-width: 20rem;">
         <div id="card-name" ++ class="card-header">
           <h3>{{singleJob.company}}</h3>
           <div class="iconsDiv">
@@ -60,51 +59,51 @@
           <h6>JOB POST: <a href="{{singleJob.link}}" target="_blank">link</a></h6>
           <h6>LISTED SALARY: {{#moneyFormat singleJob.salary}}{{/moneyFormat}}</h6>
           {{#if haveApplied }}
-          <h6>
-          <label for="checkbox">
-            Applied to job? 
-            <input type="checkbox" id="appliedTo" checked class="card-title"></input>
-          </label>
-          </h6>
+            <h6>
+              <label for="checkbox">
+                Applied to job?
+                <input type="checkbox" id="appliedTo" checked class="card-title"></input>
+              </label>
+            </h6>
           {{/if}}
           {{#unless haveApplied}}
-          <h6>
-          <label for="checkbox">
-            Applied to job? 
-            <input type="checkbox" id="appliedTo" class="card-title"></input>
-          </label>
-          </h6>
+            <h6>
+              <label for="checkbox">
+                Applied to job?
+                <input type="checkbox" id="appliedTo" class="card-title"></input>
+              </label>
+            </h6>
           {{/unless}}
 
           {{#if feedback }}
-          <h6>
-          <label for="checkbox">
-            Any feedback? 
-            <input type="checkbox" id="feedback" checked class="card-title"></input>
-          </label>
-          </h6>
+            <h6>
+              <label for="checkbox">
+                Any feedback?
+                <input type="checkbox" id="feedback" checked class="card-title"></input>
+              </label>
+            </h6>
 
           {{/if}}
           {{#unless feedback}}
-          <h6>
-          <label for="checkbox">
-            Any feedback? 
-            <input type="checkbox" id="feedback" class="card-title"></input>
-          </label>
-          </h6>
+            <h6>
+              <label for="checkbox">
+                Any feedback?
+                <input type="checkbox" id="feedback" class="card-title"></input>
+              </label>
+            </h6>
           {{/unless}}
           <div>
             <h4>Recruiter</h4>
-          <h6>
-            NAME: {{#formatStringData recruiterName}}{{/formatStringData}}
-          </h6>
-          
-          <h6>
-            PHONE: {{#formatStringData recruiterPhone}}{{/formatStringData}}
-          </h6>
-          <h6>
-            EMAIL: {{#formatStringData recruiterEmail}}{{/formatStringData}}
-          </h6>
+            <h6>
+              NAME: {{#formatStringData recruiterName}}{{/formatStringData}}
+            </h6>
+
+            <h6>
+              PHONE: {{#formatStringData recruiterPhone}}{{/formatStringData}}
+            </h6>
+            <h6>
+              EMAIL: {{#formatStringData recruiterEmail}}{{/formatStringData}}
+            </h6>
           </div>
 
           <div>
@@ -124,11 +123,11 @@
           </div>
           <div>
             <h4>
-            Job Offer:
+              Job Offer:
             </h4>
             <h6>
-            BENEFITS PACKAGE: <br>
-            {{#formatStringData jobOffer}}{{/formatStringData}}
+              BENEFITS PACKAGE: <br>
+              {{#formatStringData jobOffer}}{{/formatStringData}}
             </h6>
           </div>
         </div>
@@ -139,13 +138,7 @@
 
 </body>
 
-
 <script src="assets/js/cards.js"></script>
 <script src="assets/js/Delete.js"></script>
-
-
-
 <script src="assets/js/LogOut.js"></script>
 <script src="/assets/js/motivationalQ.js"></script>
-
-

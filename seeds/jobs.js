@@ -1,4 +1,4 @@
-module.exports =  [
+module.exports = [
     {
         company: 'Facebook',
         position: 'Full Stack Dev',
