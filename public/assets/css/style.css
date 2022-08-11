@@ -41,6 +41,12 @@ body {
 
 h4 {
   color: green;
+  font-weight: bold;
+  font-size: larger;
+  padding-top: 7px;
+  padding-bottom: 2px;
+  padding-left: 30px;
+  /* text-align: center; */
 }
 
 h4 p {
@@ -54,7 +60,6 @@ h4 p {
 .card-header:first-child {
   background-color: #2f4d7f;
   color: #ecf1f9;
-  font-size: medium;
   text-align: center;
   font-weight: bold;
   display: flex;
@@ -67,6 +72,27 @@ h3 {
   size: small;
   text-align: center;
 }
+
+.secondaryTitles {
+  color: #2f4d7f;
+  font-weight: bold;
+}
+
+label {
+  color: #2f4d7f;
+  font-weight: bold;
+}
+
+span {
+  color: black;
+  font-weight: lighter;
+}
+
+#editBtn {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
 
 .gradient-custom {
   background: #0087FF;
