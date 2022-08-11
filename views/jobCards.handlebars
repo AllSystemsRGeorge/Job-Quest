@@ -4,7 +4,7 @@
   <section id="navBar">
 
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="/jobcards"><img src="/assets/images/Job Quest logo.jpeg" class="logo" height="100px"></a>
+      <a href="/jobform"><img src="/assets/images/Job Quest logo.jpeg" class="logo" height="100px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,21 +44,31 @@
           <h3>{{singleJob.company}}</h3>
           <div class="iconsDiv">
             <button id="editBtn" onclick="getJobForm('{{singleJob.id}}')">
-              <img src="/assets/images/pen.png" align="center" width="20px" height="20px" alt="edit icon">
+              <img src="/assets/images/pencil_icon.png" align="center" width="20px" height="20px" alt="edit icon">
             </button>
             <button id="deleteBtn" onclick="deleteCard('{{{singleJob.id}}}')">
-              <img src="/assets/images/trash.png" align="center" width="20px" height="20px" alt="delete icon">
+              <img src="/assets/images/bin_icon.png" align="center" width="15px" height="22px" alt="delete icon">
             </button>
           </div>
         </div>
         <div id="company1" class="card-body">
-          <h4>Job Description</h4>
-          <h6>POSITION: {{singleJob.position}}</h6>
-          <h6>JOB POST: <a href="{{singleJob.link}}" target="_blank">link</a></h6>
-          <h6>LISTED SALARY: {{#moneyFormat singleJob.salary}}{{/moneyFormat}}</h6>
+          <h4>Job Description:</h4>
+          <h6 class="secondaryTitles">Position: 
+            <span>{{singleJob.position}}</span>
+          </h6>
+          <h6 class="secondaryTitles">Job post: 
+            <span>
+              <a href="{{singleJob.link}}" target="_blank">link</a>
+            </span>
+          </h6>
+          <h6 class="secondaryTitles">Listed salary: 
+            <span>
+            {{#moneyFormat singleJob.salary}}{{/moneyFormat}}
+            </span>
+          </h6>
           {{#if haveApplied }}
             <h6>
-              <label for="checkbox">
+              <label id="checkbox" for="checkbox">
                 Applied to job?
                 <input type="checkbox" id="appliedTo" checked class="card-title"></input>
               </label>
@@ -91,41 +101,58 @@
             </h6>
           {{/unless}}
           <div>
-            <h4>Recruiter</h4>
-            <h6>
-              NAME: {{#formatStringData recruiterName}}{{/formatStringData}}
+            <h4>Recruiter:</h4>
+            <h6 class="secondaryTitles">
+              Name: 
+              <span>
+                {{#formatStringData recruiterName}}{{/formatStringData}}
+              </span>
             </h6>
 
-            <h6>
-              PHONE: {{#formatStringData recruiterPhone}}{{/formatStringData}}
+            <h6 class="secondaryTitles">
+              Phone: 
+              <span>
+                {{#formatStringData recruiterPhone}}{{/formatStringData}}
+              </span>
             </h6>
-            <h6>
-              EMAIL: {{#formatStringData recruiterEmail}}{{/formatStringData}}
+            <h6 class="secondaryTitles">
+              Email: 
+              <span>
+                {{#formatStringData recruiterEmail}}{{/formatStringData}}
+              </span>
             </h6>
           </div>
 
           <div>
-            <h4>Interview</h4>
-            <h6>
-              SCREENING INTERVIEW: <br>
-              {{#dateFormat screeningInterview}} {{/dateFormat}}
+            <h4>Interview:</h4>
+            <h6 class="secondaryTitles">
+              Screening interview: <br>
+              <span>
+                {{#dateFormat screeningInterview}} {{/dateFormat}}
+              </span>
             </h6>
-            <h6>
-              TECHNICAL INTERVIEW: <br>
-              {{#dateFormat technicalInterview}} {{/dateFormat}}
+            <h6 class="secondaryTitles">
+              Technical interview: <br>
+              <span>
+                {{#dateFormat technicalInterview}} {{/dateFormat}}
+              </span>
             </h6>
-            <h6>
-              FINAL INTERVIEW: <br>
-              {{#dateFormat finalInterview}} {{/dateFormat}}
+            <h6 class="secondaryTitles">
+              Final interview: <br>
+              <span>
+                {{#dateFormat finalInterview}} {{/dateFormat}}
+              </span>
             </h6>
           </div>
           <div>
             <h4>
               Job Offer:
             </h4>
-            <h6>
-              BENEFITS PACKAGE: <br>
-              {{#formatStringData jobOffer}}{{/formatStringData}}
+            <h6 class="secondaryTitles">
+              Benefits package: <br>
+              <span>
+                {{#formatStringData jobOffer}}{{/formatStringData}}
+              </span>
             </h6>
           </div>
         </div>
@@ -140,3 +167,6 @@
 <script src="assets/js/Delete.js"></script>
 <script src="assets/js/LogOut.js"></script>
 <script src="/assets/js/motivationalQ.js"></script>
+
+{{!-- <a href="https://www.vecteezy.com/free-vector/pencil-icon">Pencil Icon Vectors by Vecteezy</a> --}}
+{{!-- <a href="https://www.vecteezy.com/free-vector/web">Web Vectors by Vecteezy</a> --}}

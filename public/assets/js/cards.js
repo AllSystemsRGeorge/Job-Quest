@@ -1,7 +1,6 @@
 // js functionality for front end of jobcards
 const searchInput = document.querySelector('#searchInput');
 const searchBtn = document.querySelector('#searchBtn');
-const clearBtn = document.querySelector('#clearBtn');
 const cardsContainer = document.querySelector('#cards');
 const editJobCard = document.getElementById('editBtn');
 
