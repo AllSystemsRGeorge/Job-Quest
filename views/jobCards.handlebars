@@ -57,11 +57,11 @@
         <div id="company1" class="card-body">
           <h4 id="jobTitle1" class="card-title">Position: {{singleJob.position}}</h4>
           <h4>Job Description: <a href="{{singleJob.link}}" target="_blank">link</a></h4>
-          <h6 id="jobTitle1" class="card-title">Salary: {{#moneyFormat singleJob.salary}}{{/moneyFormat}}</h6>
+          <h6 id="jobTitle1" class="card-title">Salary estimate: {{#moneyFormat singleJob.salary}}{{/moneyFormat}}</h6>
           {{#if haveApplied }}
           <h6>
           <label for="checkbox">
-            Applied to job: 
+            Applied to job? 
             <input type="checkbox" id="appliedTo" checked class="card-title"></input>
           </label>
           </h6>
@@ -69,7 +69,7 @@
           {{#unless haveApplied}}
           <h6>
           <label for="checkbox">
-            Applied to job: 
+            Applied to job? 
             <input type="checkbox" id="appliedTo" class="card-title"></input>
           </label>
           </h6>
@@ -99,7 +99,7 @@
           </h6>
           
           <h6>
-            Phone Nbr: {{#formatStringData recruiterPhone}}{{/formatStringData}}
+            Phone: {{#formatStringData recruiterPhone}}{{/formatStringData}}
           </h6>
           <h6>
             Email: {{#formatStringData recruiterEmail}}{{/formatStringData}}
@@ -109,37 +109,26 @@
           <div>
             <h4>Interview</h4>
             <h6>
-              Screening Int.: 
+              Screening Interview: <br>
               {{#dateFormat screeningInterview}} {{/dateFormat}}
             </h6>
             <h6>
-              Technical Int.: 
+              Technical Interview: <br>
               {{#dateFormat technicalInterview}} {{/dateFormat}}
             </h6>
             <h6>
-              Final Int.: 
+              Final Interview: <br>
               {{#dateFormat finalInterview}} {{/dateFormat}}
             </h6>
-
           </div>
           <div>
-            {{#if jobOffer }}
-          <h6>
-          <label for="checkbox">
-            Job Offer: 
-            <input type="checkbox" id="jobOffer" checked class="card-title"></input>
-          </label>
-          </h6>
-
-          {{/if}}
-          {{#unless jobOffer}}
-          <h6>
-          <label for="checkbox">
-            Job Offer:  
-            <input type="checkbox" id="jobOffer" class="card-title"></input>
-          </label>
-          </h6>
-          {{/unless}}
+            <h4>
+            Job Offer:
+            </h4>
+            <h6>
+            Benefits package: <br>
+            {{#formatStringData jobOffer}}{{/formatStringData}}
+            </h6>
           </div>
 
           
