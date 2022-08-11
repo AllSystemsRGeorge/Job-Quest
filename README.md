@@ -16,17 +16,19 @@
 - [Acknowledgments](#acknowledgments)
 ​​
 ## Overview
+
+This application was created to aid our job searching process once we have completed our coding bootcamp program. We wanted to created an app to help keep track of all the jobs that we have applied to, to ensure we have all the accurate information for each job as well as ensuring that we can follow up with updates on the interviewing process and hiring process.
 ​
 ### The challenge
 ​
-This is a collaborative project to create a real world full stack application by showcasing skills we have acquired. This project aims to provide people with practical application. 
+This is a collaborative project to create a real world full stack application by showcasing skills we have acquired so far in our coding bootcamp. This project aims to provide people with practical application using Node.js and Express.js to create a RESTful API. This application also requires the usage of Handlebars.js, MySQL, Sequelize ORM, and an authentication middleware.
 ​
 ### User Story
 ​
 ```
 AS AN unemployed bootcamp student
-I WANT to be able to log, view and track all the jobs that I am interested and have applied 
-SO THAT I can organize my job applications and get a job
+I WANT to be able to log all the jobs that I am interested in and have applied to
+SO THAT I can easily track all my jobs and stay organized during my job seach process
 ```
 
 ### Acceptance Criteria
@@ -77,7 +79,13 @@ In addition to the skills to code the application, we learned how to work in a t
 
 ### Continued development
 ​
-Although we are proud of what we have made, there are still more room for improvement. We would like to save and display more information about the jobs that we are interested or have applied to. We included a search input so that we can search specific job given several jobs we have applied to. We would also like to further improve the user authentication. 
+Although we are proud of what we have made, there are still more room for improvement:
+
+-further improve the user authentication
+-add some a reward system for when users create/applied to a certain number of jobs to make it more fun and motivating for users
+-adding a user profile page so that users are able to make the app more customizable (profile pic etc.)
+-add a functionality where user is able to compare Card A with Card B with Card C etc, so they can compare the different job offers side by side
+
 
 ## Authors
 ​
