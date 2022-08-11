@@ -9,14 +9,14 @@ var timeoutTimer;
 // Start warning timer.
 function StartWarningTimer() {
     warningTimer = setTimeout("IdleWarning()", timeoutWarning);
-}
+};
 
 // Reset timers.
 function ResetTimeOutTimer() {
     clearTimeout(timeoutTimer);
     StartWarningTimer();
     $("#timeout").dialog('close');
-}
+};
 
 // Show idle timeout warning dialog.
 function IdleWarning() {
@@ -27,9 +27,9 @@ function IdleWarning() {
     });
     // Add code in the #timeout element to call ResetTimeOutTimer() if
     // the "Stay Logged In" button is clicked
-}
+};
 
 // Logout the user.
 function IdleTimeout() {
     window.location = logoutUrl;
-}
+};

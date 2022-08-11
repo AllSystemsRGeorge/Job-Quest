@@ -50,4 +50,4 @@ async function updateJob(id) {
     } catch (error) {
         alert(error);
     }
-}
+};

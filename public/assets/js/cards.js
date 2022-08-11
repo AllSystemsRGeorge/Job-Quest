@@ -8,56 +8,56 @@ const editJobCard = document.getElementById('editBtn');
 
 const makeGetRequest = async (url) => {
 
-    try {
-        const res = await fetch(url);
-        const response = await res.json();
+  try {
+    const res = await fetch(url);
+    const response = await res.json();
 
-        return response;
+    return response;
 
-    } catch (e) {
-        console.error(e);
-    }
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 const formatStringData = (data) => {
-    if (!data) {
-        return "N/A";
-    }
-    return data;
+  if (!data) {
+    return "N/A";
+  }
+  return data;
 }
 
 const moneyFormat = (data) => {
-    if (!data) {
-        return "$0.00";
-    }
-    return `$${parseInt(data).toFixed(2)}`;
+  if (!data) {
+    return "$0.00";
+  }
+  return `$${parseInt(data).toFixed(2)}`;
 }
 
 const formatDateTime = (dateTime) => {
-    if (!dateTime){
-        return "N/A";
-    }
-    const date = new Date(dateTime);
-    return date.toUTCString();
+  if (!dateTime) {
+    return "N/A";
+  }
+  const date = new Date(dateTime);
+  return date.toUTCString();
 }
 
 const renderSearchResult = (jobs) => {
-    cardsContainer.innerHTML = '';
-    for (let job of jobs) {
-        const cardContainer = document.createElement('div');
-        cardContainer.style = "max-width: 20rem;";
-        cardContainer.className = "card border-success mb-3";
+  cardsContainer.innerHTML = '';
+  for (let job of jobs) {
+    const cardContainer = document.createElement('div');
+    cardContainer.style = "max-width: 20rem;";
+    cardContainer.className = "card border-success mb-3";
 
-        const cardName = document.createElement('div');
-        cardName.id = "card-name";
-        cardName.className = "card-header";
+    const cardName = document.createElement('div');
+    cardName.id = "card-name";
+    cardName.className = "card-header";
 
-        cardName.innerHTML = `<h3>${job.company}</h3>`;
+    cardName.innerHTML = `<h3>${job.company}</h3>`;
 
-        const company = document.createElement('div');
-        company.id = "company1";
-        company.className = "card-body";
-        company.innerHTML = `
+    const company = document.createElement('div');
+    company.id = "company1";
+    company.className = "card-body";
+    company.innerHTML = `
         <h4 id="jobTitle1" class="card-title">${job.position}</h4>
         <h4>Job Description: <a href=${job.link} target="_blank">link</a></h4>
         <h4 id="jobInitialSalary" class="card-title">${job.salary}</h4>
@@ -110,29 +110,28 @@ const renderSearchResult = (jobs) => {
           </label>
           </h6>
         `
-        
-        cardContainer.appendChild(cardName);
-        cardContainer.appendChild(company);
-        cardsContainer.appendChild(cardContainer);
-    }
+    cardContainer.appendChild(cardName);
+    cardContainer.appendChild(company);
+    cardsContainer.appendChild(cardContainer);
+  }
 };
 
 searchBtn.addEventListener('click', async (e) => {
-    e.preventDefault;
-    const companyName = searchInput.value.trim();
-    const url = `/search?company=${companyName}`;
-    const jobs = await makeGetRequest(url);
-    renderSearchResult(jobs);
+  e.preventDefault;
+  const companyName = searchInput.value.trim();
+  const url = `/search?company=${companyName}`;
+  const jobs = await makeGetRequest(url);
+  renderSearchResult(jobs);
 });
 
 clearBtn.addEventListener('click', async (e) => {
-    e.preventDefault;
-    const url = `/jobCards/clear`;
-    const jobs = await makeGetRequest(url);
-    renderSearchResult(jobs);
+  e.preventDefault;
+  const url = `/jobCards/clear`;
+  const jobs = await makeGetRequest(url);
+  renderSearchResult(jobs);
 });
 
 // renders jobform by its perspective job card in order to edit job card
 function getJobForm(id) {
-    window.location.href = '/jobform/' + id
-}
+  window.location.href = '/jobform/' + id
+};

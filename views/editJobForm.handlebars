@@ -48,10 +48,12 @@
                 <label>Job Posting URL (Required) </label>
             </div>
             <div class="form-floating mb-3">
-                <label for="customRange3" class="form-label text-muted">Salary Range: <output id="rangeVal" class="fontSizing text-muted">${{selectedJob.salary}}</output></label> 
+                <label for="customRange3" class="form-label text-muted">Salary Range: <output id="rangeVal"
+                        class="fontSizing text-muted">${{selectedJob.salary}}</output></label>
                 <br>
                 <br>
-                <input type="range" class="form-range" min="10000" max="500000" step="10000" id="salary" oninput="rangValfunc(this.value)" value="rangeValfunc({{selectedJob.salary}})">
+                <input type="range" class="form-range" min="10000" max="500000" step="10000" id="salary"
+                    oninput="rangValfunc(this.value)" value="rangeValfunc({{selectedJob.salary}})">
             </div>
             <div class="form-floating mb-3">
                 <h5>Application Status</h5>
@@ -60,11 +62,12 @@
                 <ul>
                     <li>
                         <label for="applied" class="text-muted">Applied to job?</label>
-                        <input type="checkbox" name="jobApplication" id="applicationStatus" value={{selectedJob.haveApplied}}>
+                        <input type="checkbox" name="jobApplication" id="applicationStatus"
+                            value={{selectedJob.haveApplied}}>
                     </li>
                     <li>
                         <label for="feedback" class="text-muted">Did you hear back from this company since you
-                        applied?</label>
+                            applied?</label>
                         <input type="checkbox" name="feedback" id="feedbackStatus" value={{selectedJob.feedback}}>
                     </li>
                 </ul>
@@ -88,15 +91,18 @@
                 <h5>Interview Status</h5>
             </div>
             <div class="form-floating mb-3 ">
-                <input type="datetime-local" class="form-control" name="screeningInt" id="screeningInterview" value={{selectedJob.screeningInterview}}>
+                <input type="datetime-local" class="form-control" name="screeningInt" id="screeningInterview"
+                    value={{selectedJob.screeningInterview}}>
                 <label for="screeningInt">Screening Interview</label>
             </div>
             <div class="form-floating mb-3 ">
-                <input type="datetime-local" class="form-control" name="screeningInt" id="technicalInterview" value={{selectedJob.technicalInterview}}>
+                <input type="datetime-local" class="form-control" name="screeningInt" id="technicalInterview"
+                    value={{selectedJob.technicalInterview}}>
                 <label for="screeningInt">Technical Interview</label>
             </div>
             <div class="form-floating mb-3 ">
-                <input type="datetime-local" class="form-control" name="screeningInt" id="finalInterview" value={{selectedJob.finalInterview}}>
+                <input type="datetime-local" class="form-control" name="screeningInt" id="finalInterview"
+                    value={{selectedJob.finalInterview}}>
                 <label for="screeningInt">Final Interview</label>
             </div>
             <div class="form-floating mb-3">
@@ -104,13 +110,16 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label text-muted">Job Benefits</label>
-                <textarea class="form-control" id="jobOffer" rows="3" placeholder="Input Benefits Here">{{selectedJob.jobOffer}}</textarea>
+                <textarea class="form-control" id="jobOffer" rows="3"
+                    placeholder="Input Benefits Here">{{selectedJob.jobOffer}}</textarea>
             </div>
-        
-            <button type="submit" class="btn btn-primary" id="updateBtn" onclick="updateJob('{{selectedJob.id}}')">Update Job Card</button>
+
+            <button type="submit" class="btn btn-primary" id="updateBtn"
+                onclick="updateJob('{{selectedJob.id}}')">Update Job Card</button>
         </div>
     </div>
 </section>
+
 <script src="/assets/js/editjobs.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
