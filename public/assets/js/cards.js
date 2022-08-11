@@ -41,6 +41,7 @@ const formatDateTime = (dateTime) => {
   return date.toUTCString();
 }
 
+// to display search results
 const renderSearchResult = (jobs) => {
   cardsContainer.innerHTML = '';
   for (let job of jobs) {
@@ -116,17 +117,11 @@ const renderSearchResult = (jobs) => {
   }
 };
 
+// search button on click
 searchBtn.addEventListener('click', async (e) => {
   e.preventDefault;
   const companyName = searchInput.value.trim();
   const url = `/search?company=${companyName}`;
-  const jobs = await makeGetRequest(url);
-  renderSearchResult(jobs);
-});
-
-clearBtn.addEventListener('click', async (e) => {
-  e.preventDefault;
-  const url = `/jobCards/clear`;
   const jobs = await makeGetRequest(url);
   renderSearchResult(jobs);
 });

@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Jobs } = require('../models');
-const AllJobs = require('../seeds/jobs');
 
 // creates new job card with user input
 router.post('/jobform', async (req, res) => {
@@ -43,6 +42,7 @@ router.get('/jobform/:id', async (req, res) => {
     }
 });
 
+// to search a sepeciv job card by company name
 router.get('/search', async (req, res) => {
     if (!req.session.isLoggedIn) {
         return res.redirect('/')
