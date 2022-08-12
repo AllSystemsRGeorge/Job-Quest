@@ -77,7 +77,7 @@ router.put('/jobform', async (req, res) => {
                 feedback: req.body.feedback,
                 recruiterName: req.body.recruiterName,
                 recruiterPhone: req.body.recruiterPhone,
-                recruiterEmail: req.body.recruiterPhone,
+                recruiterEmail: req.body.recruiterEmail,
                 // conditions for if dates not selected
                 screeningInterview: req.body.screeningInterview == "" ? null : req.body.screeningInterview,
                 technicalInterview: req.body.technicalInterview == "" ? null : req.body.technicalInterview,
